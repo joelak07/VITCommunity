@@ -1,0 +1,46 @@
+.login {
+    background-image: url("./loginbackground.jpg");
+    background-size: cover;
+    z-index: -1;
+}
+
+.leftlog h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    background-color: antiquewhite;
+    opacity: 0.8;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.login {
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftlog {
+    width: 100%;
+
+}
+
+.rightlog {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.logincontainer {
+    padding: 60px;
+    background-color: antiquewhite;
+    margin-right: 10%;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

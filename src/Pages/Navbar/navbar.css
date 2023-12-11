@@ -1,0 +1,98 @@
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    height: 100px;
+}
+
+.leftnav{
+    display: flex;
+    width: 50%;
+    align-items: baseline;
+    margin-left: 20px;
+}
+
+.leftnav h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 500;   
+}
+
+.leftnav span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+}
+
+.rightnav{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logoutbut{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.logoutbut:hover{
+    transform: scale(1.1);
+}
+
+.backbut{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color:black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-right: 20px;
+}
+
+.backbut:hover{
+    transform: scale(1.1);
+}
+
+.paperbut{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color:black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-right: 20px;
+}
+
+.paperbut:hover{
+    transform: scale(1.1);
+}
+
+.notesbut{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color:black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-right: 20px;
+}
+
+.notesbut:hover{
+    transform: scale(1.1);
+}

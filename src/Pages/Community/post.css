@@ -1,0 +1,66 @@
+.post {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .namepost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .namepost h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .datetime {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  .postcont p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .likes {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 10px;
+  }
+  
+  .likes button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .likes p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    margin-left: 10px; 
+  }
+  
+  .datetime{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .datetime p{
+    width: 30px;
+  }

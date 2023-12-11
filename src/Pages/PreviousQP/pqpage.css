@@ -1,0 +1,14 @@
+.pqpage{
+    height: 100vh;
+}
+
+.pageres{
+    margin: 20px;
+    width: max-width;
+    height: 96vh;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+}
