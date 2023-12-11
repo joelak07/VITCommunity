@@ -8,7 +8,7 @@
     width: max-width;
     height: auto;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: antiquewhite;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
@@ -40,6 +40,7 @@
     border-radius: 5px;
     margin-top: 5px;
     font-size: 16px;
+    background-color: white;
   }
 
   .notesform button {
@@ -60,16 +61,16 @@
 
   .noteslist{
     margin: 20px;
-    background-color: aqua;
     width: max-width;
     height: auto;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: antiquewhite;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-wrap: wrap;
+    min-height: 500px;
   }
 
   .waitstyle{

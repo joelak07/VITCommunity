@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Notespage = () => {
   const location = useLocation();
   const [subjectCode, setSubjectCode] = useState("");
+  const [subjectName, setSubjectName] = useState("");
   const [faculty, setFaculty] = useState('');
   const [description, setDescription] = useState('');
   const [module, setModule] = useState('');
@@ -90,17 +91,19 @@ const Notespage = () => {
 
 
   useEffect(() => {
-    if (location.state && location.state.subjectCode) {
+    if (location.state && location.state.subjectCode && location.state.subjectName) {
       setSubjectCode(location.state.subjectCode);
+      setSubjectName(location.state.subjectName);
     } else {
       console.error("User information not found in location state");
     }
   }, [location.state]);
+  
 
   return (
     <div className="notespage">
       <div className="uploadnotescont">
-        <h2>Upload Notes for {subjectCode}</h2>
+        <h2>Upload Notes for {subjectName} {subjectCode}</h2>
         <div className="notesform">
           <form onSubmit={handleSubmit}>
 
@@ -162,10 +165,24 @@ const Notespage = () => {
       </div>
 
       <div className="noteslist">
-        {notes.map(note => (
-          <Note key={note.id} faculty={note.Faculty} description={note.Description} download={note.fileURL} module={note.Module} student={note.student} time={note.timestamp}/>
-        ))}
-      </div>
+      {notes.length > 0 ? (
+        // Render notes if there are any
+        notes.map((note) => (
+          <Note
+            key={note.id}
+            faculty={note.Faculty}
+            description={note.Description}
+            download={note.fileURL}
+            module={note.Module}
+            student={note.student}
+            time={note.timestamp}
+          />
+        ))
+      ) : (
+        // Display a message when no notes are available
+        <b>No notes are uploaded for this Subject</b>
+      )}
+    </div>
     </div>
   );
 };

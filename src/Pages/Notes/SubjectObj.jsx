@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const SubjectObj = ({ subjectCode, subjectName }) => {
   const navigate = useNavigate();
     const handleClick = () => {
-      navigate('/notespage', { state: {subjectCode:subjectCode} });
+      navigate('/notespage', { state: {subjectCode:subjectCode, subjectName:subjectName} });
     };
   return (
     <div className='subjectobj' onClick={handleClick}>
