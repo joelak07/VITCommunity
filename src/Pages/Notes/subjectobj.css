@@ -14,11 +14,8 @@
 }
 
 .subjectobj:hover {
-    transform: scale(1.1);
     cursor: pointer;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    width: calc(22% - 10px); /* Increase the width on hover */
+    background-color: rgb(255, 201, 134);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 

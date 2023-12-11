@@ -68,7 +68,8 @@ const NotesShare = () => {
   return (
     <div className="notes">
       <div className="uploadnotes">
-        <h2>Add Subject</h2>
+      <h2>Add Subject</h2>
+        
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="subjectCode">Subject Code:</label>
