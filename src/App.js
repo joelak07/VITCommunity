@@ -23,6 +23,8 @@ function App() {
           <Route path="/notes" element={<NotesShare/>} />
           <Route path="/notespage" element={<Notespage/>} />
           <Route path="/pqpage" element={<Pqpage/>} />
+          <Route path="*" element={<Login />} />
+          
         </Routes>
     </div>
   );

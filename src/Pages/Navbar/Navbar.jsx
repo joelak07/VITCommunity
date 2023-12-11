@@ -7,11 +7,10 @@ import { signOut } from 'firebase/auth';
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/';
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community';  
   const name = localStorage.getItem('userName') || '';
-
-  const isRestrictedPath = ['/', '/signup', '/home'].includes(location.pathname);
-  const shouldDisplayButtons = !isRestrictedPath;
+  const isRestrictedPath = ['/previousqp','/pqpage','/notes','/notespage'].includes(location.pathname);
+  const shouldDisplayButtons = isRestrictedPath;
 
   const handleLogout = () => {
     localStorage.removeItem('userName');
@@ -43,7 +42,7 @@ const Navbar = () => {
             <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}>Notes</button>
           </>
         )}
-        {!isRootPath && (
+        {isRootPath && (
           <button className='logoutbut' onClick={handleLogout}>
             Logout
           </button>
