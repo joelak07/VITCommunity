@@ -7,7 +7,7 @@
 
 .leftnav{
     display: flex;
-    width: 50%;
+    width: max-content;
     align-items: baseline;
     margin-left: 20px;
 }
