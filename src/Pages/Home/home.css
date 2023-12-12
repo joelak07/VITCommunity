@@ -1,11 +1,9 @@
 /* Add these styles to your CSS file or style section */
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 20px;
     height: 100vh;
+    font-family: 'Poppins', sans-serif;
   }
   
   .heading {
@@ -26,10 +24,10 @@
   }
   
   .button {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 24px 48px;
+    font-size: 1.5rem;
     cursor: pointer;
-    background-color: #4CAF50; /* Green color, you can change it */
+    background-color: brown; /* Green color, you can change it */
     color: white;
     border: none;
     border-radius: 5px;
@@ -37,6 +35,47 @@
   }
   
   .button:hover {
-    background-color: #45a049; /* Darker green color on hover, you can change it */
+    background-color: darkred; /* Darker green color on hover, you can change it */
   }
   
+  .home-content{
+    background-color: antiquewhite;
+    width: max-width;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .tophome{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Popins', sans-serif;
+  }
+
+  .homecontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: max-width;
+  }
+
+
+  .homecontent1,.homecontent2,.homecontent3{
+    font-family: 'Popins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    width: 95%;
+    height: 40%;
+    border-radius: 10px;
+    background-color: rgb(249, 216, 172);
+    padding: 20px;
+  }
+
+  .homecontent b{
+    font-size: 1.5rem;
+  }
