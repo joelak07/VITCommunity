@@ -77,6 +77,7 @@ const Community = () => {
               likes={post.likes}
               postId={post.id}
               dislikes={post.dislikes}
+              fires={post.fires}
             />
           ))}
         </div>
