@@ -19,7 +19,12 @@ const Previousqp = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPapers, setFilteredPapers] = useState([]);
   const [loading, setLoading] = useState(false); // New state for loading
-  // const [name, setName] = useState('');
+  const [showUploadForm, setShowUploadForm] = useState(false);
+
+
+  const handleUploadClick = () => {
+    setShowUploadForm(!showUploadForm);
+  };
 
   const initialization = async (e) => {
     try {
@@ -117,102 +122,123 @@ const Previousqp = () => {
   return (
     <div className="prevqp">
       <div className="upload">
-        <h2>Upload Previous Question Paper</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="formgroup1">
-            <label>
-              <b>Course Code:</b>
-              <input
-                type="text"
-                name="courseCode"
-                placeholder="eg. BCSE101P"
-                onChange={(e) => setCoursecode(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              <b>Course Title:</b>
-              <input
-                type="text"
-                name="courseTitle"
-                placeholder="eg. Network Theory"
-                onChange={(e) => setCoursetitle(e.target.value)}
-                required
-              />
-            </label>
+        <div className="topuploadbox">
+          <h2>Upload Previous Question Paper</h2>
+          <button className="meleupload" onClick={handleUploadClick}>
+            {showUploadForm ? 'Close' : 'Upload'}
+          </button>
+        </div>
+        {showUploadForm && (
+          <div className="uploadformres">
+            <form onSubmit={handleSubmit}>
+              <div className="formgroupp1">
+                <div className="part">
+                  <label>
+                    <b>Course Code:</b>
+                  </label>
+                  <input
+                    type="text"
+                    name="courseCode"
+                    placeholder="eg. BCSE101P"
+                    onChange={(e) => setCoursecode(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="part">
+                  <label>
+                    <b>Course Title:</b></label>
+                  <input
+                    type="text"
+                    name="courseTitle"
+                    placeholder="eg. Network Theory"
+                    onChange={(e) => setCoursetitle(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="formgroupp1">
+                <div className="part">
+                  <label>
+                    <b>Faculty:</b></label>
+                  <input
+                    type="text"
+                    name="faculty"
+                    placeholder="eg. Dr Joe Root"
+                    onChange={(e) => setFaculty(e.target.value)}
+                    required
+                  />
 
-            <label>
-              <b>Faculty:</b>
-              <input
-                type="text"
-                name="faculty"
-                placeholder="eg. Dr Joe Root"
-                onChange={(e) => setFaculty(e.target.value)}
-                required
-              />
-            </label>
-
-            <label>
-              <b>Exam Date:</b>
-              <input
-                type="date"
-                name="examDate"
-                onChange={(e) => setExamdate(e.target.value)}
-                required
-              />
-            </label>
+                </div>
+                <div className="part">
+                  <label>
+                    <b>Exam Date:</b></label>
+                  <input
+                    type="date"
+                    name="examDate"
+                    onChange={(e) => setExamdate(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="formgroupp1">
+                <div className="part">
+                  <label>
+                    <b>Slot:</b> </label>
+                  <input
+                    type="text"
+                    name="slot"
+                    placeholder="eg. A1/B2"
+                    onChange={(e) => setSlot(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="part">
+                  <label>
+                    <b>Exam Type:</b></label>
+                  <select
+                    name="examType"
+                    onChange={(e) => setExamtype(e.target.value)}
+                  >
+                    <option disabled>Select Exam Type</option>
+                    <option value="CAT">CAT</option>
+                    <option value="FAT">FAT</option>
+                    <option value="MAT">MAT</option>
+                    <option value="PAT">PAT</option>
+                  </select>
+                </div>
+              </div>
+              <div className="formgroupp1">
+                <div className="part">
+                  <label>
+                    <b>Exam Category:</b></label>
+                  <select
+                    name="examCategory"
+                    onChange={(e) => setExamcategory(e.target.value)}
+                  >
+                    <option disabled>Select Exam Category</option>
+                    <option value="Theory">Theory</option>
+                    <option value="Lab">Lab</option>
+                  </select>
+                </div>
+                <div className="part">
+                  <label htmlFor="file"><b>Upload File:</b></label>
+                  <input
+                    type="file"
+                    id="file"
+                    onChange={(e) => setFile(e.target.files[0])}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="formgroup3">
+                <button type="submit" disabled={loading} className="pqupload">
+                  {loading ? "Uploading..." : "Upload File"}
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="formgroup2">
-            <label>
-              <b>Slot:</b>
-              <input
-                type="text"
-                name="slot"
-                placeholder="eg. A1/B2"
-                onChange={(e) => setSlot(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              <b>Exam Type:</b>
-              <select
-                name="examType"
-                onChange={(e) => setExamtype(e.target.value)}
-              >
-                <option disabled>Select Exam Type</option>
-                <option value="CAT">CAT</option>
-                <option value="FAT">FAT</option>
-                <option value="MAT">MAT</option>
-                <option value="PAT">PAT</option>
-              </select>
-            </label>
-            <label>
-              <b>Exam Category:</b>
-              <select
-                name="examCategory"
-                onChange={(e) => setExamcategory(e.target.value)}
-              >
-                <option disabled>Select Exam Category</option>
-                <option value="Theory">Theory</option>
-                <option value="Lab">Lab</option>
-              </select>
-            </label>
-            <div className="boxi">
-              <label htmlFor="file"><b>Upload File:</b></label>
-              <input
-                type="file"
-                id="file"
-                onChange={(e) => setFile(e.target.files[0])}
-                required
-              />
-            </div>
-          </div>
-          <div className="formgroup3">
-            <button type="submit" disabled={loading}>
-              {loading ? "Uploading..." : "Upload File"}
-            </button>
-          </div>
-        </form>
+        )}
+        
       </div>
       <div className="prevqpcont">
         <div className="searchcont">
@@ -227,7 +253,7 @@ const Previousqp = () => {
           </div>
         </div>
         <div className="respepe">
-        {(filteredPapers.length > 0 ? filteredPapers : papers).map(paper => (
+          {(filteredPapers.length > 0 ? filteredPapers : papers).map(paper => (
             <Prevqpclosed key={paper.id} coursecode={paper.subjectCode} papername={paper.subjectName} userName={name} />
           ))}
           {/* {papers.map(paper => (

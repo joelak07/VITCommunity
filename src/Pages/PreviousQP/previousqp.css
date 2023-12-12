@@ -60,7 +60,6 @@
 .upload h2 {
   color: #333;
   font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .upload form {
@@ -88,10 +87,10 @@
   background-color: white;
 }
 
-.formgroup1 input,
-.formgroup1 select {
+.formgroupp1 input,
+.formgroupp1 select {
   width: auto;
-  /* margin-left: 4px; */
+  margin-top: 5px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -102,26 +101,27 @@
 
 .formgroup3 {
   width: 100%;
-  padding-right: 5px;
+  padding-right: 7px;
 }
 
 .upload input[type="file"] {
   margin-top: 5px;
 }
 
-.upload button {
+.pqupload {
   background-color: green;
+  width: 98.8%;
   color: #fff;
   padding: 12px 24px;
-  float: right;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
-.upload button:hover {
+.pqupload:hover {
   background-color: darkgreen;
 }
 
@@ -183,3 +183,49 @@
   max-height: 430px;
   padding-top: 30px;
 }
+
+.topuploadbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meleupload{
+  background-color: green;
+  color: #fff;
+  padding: 12px 24px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.meleupload:hover{
+  background-color: darkgreen;
+}
+
+.uploadformres{
+  width: 100%;
+}
+
+.formgroupp1{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.part{
+  width: 100%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadformres{
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
