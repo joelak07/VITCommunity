@@ -4,10 +4,10 @@ import { useState } from "react";
 import { db } from "../../firebase";
 
 import './post.css'
-const Post = ({ student, content, likes, time, postId,dislikes }) => {
+const Post = ({ student, content, likes, time, postId,dislikes,fires }) => {
     const [like, setLike] = useState(likes);
     const [dislike, setDislike] = useState(dislikes);   
-    const [fire, setFire] = useState(0);
+    const [fire, setFire] = useState(fires);
     console.log(likes);
     console.log("postId" + postId); 
     
@@ -30,7 +30,7 @@ const Post = ({ student, content, likes, time, postId,dislikes }) => {
     const handleFire = () => {
         const docRef = doc(db, "posts", postId);
         updateDoc(docRef, {
-            fire: increment(1)
+            fires: increment(1)
         });
         setFire(fire + 1);
     }
