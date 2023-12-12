@@ -24,7 +24,7 @@ const Home = () => {
     navigate('/notes', { state: { name } });
   };
 
-  return (
+  return (  
     <div className="home-container">
       <h2 className="heading">Welcome to the Home Page!</h2>
       <h2 className="user-greeting">Hello {name}</h2>

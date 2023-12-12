@@ -9,8 +9,8 @@ const Navbar = () => {
   const location = useLocation();
   const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community';  
   const name = localStorage.getItem('userName') || '';
-  const isRestrictedPath = ['/previousqp','/pqpage','/notes','/notespage'].includes(location.pathname);
-  const shouldDisplayButtons = isRestrictedPath;
+  const isRestrictedPath = ['/previousqp','/pqpage','/notes','/notespage', '/community'].includes(location.pathname);
+  const shouldDisplayButtons = isRestrictedPath;  
 
   const handleLogout = () => {
     localStorage.removeItem('userName');
@@ -38,6 +38,7 @@ const Navbar = () => {
           <>
             <button className='backbut' onClick={() => navigate(-1)}>Go Back</button>
             <button className='backbut' onClick={() => handleNavigate('/home')}>Home</button>
+            <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}>Community</button>
             <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}>Previous Papers</button>
             <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}>Notes</button>
           </>
