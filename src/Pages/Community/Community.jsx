@@ -46,6 +46,7 @@ const Community = () => {
         time: new Date().toLocaleString(),
         likes: 0,
         dislikes: 0,
+        fire:0,
       });
       alert('Post added successfully');
       closePopup();
