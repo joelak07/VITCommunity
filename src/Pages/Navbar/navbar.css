@@ -32,7 +32,7 @@
 
 .logoutbut{
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 10px;
     background-color: red;
     color: white;
@@ -48,7 +48,7 @@
 
 .backbut{
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 10px;
     background-color:black;
     color: white;
@@ -56,7 +56,7 @@
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .backbut:hover{
@@ -65,7 +65,7 @@
 
 .paperbut{
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 10px;
     background-color:black;
     color: white;
@@ -73,7 +73,7 @@
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .paperbut:hover{
@@ -82,7 +82,7 @@
 
 .notesbut{
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 10px;
     background-color:black;
     color: white;
@@ -90,7 +90,7 @@
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .notesbut:hover{

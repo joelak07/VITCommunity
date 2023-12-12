@@ -8,8 +8,6 @@ const Post = ({ student, content, likes, time, postId,dislikes,fires }) => {
     const [like, setLike] = useState(likes);
     const [dislike, setDislike] = useState(dislikes);   
     const [fire, setFire] = useState(fires);
-    console.log(likes);
-    console.log("postId" + postId); 
     
     const handlelike = () => {
         const docRef = doc(db, "posts", postId);

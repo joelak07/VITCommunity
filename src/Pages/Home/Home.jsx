@@ -44,7 +44,7 @@ const Home = () => {
             <button className="button" onClick={goToPreviousQP}>Go to Previous QP</button>
           </div>
           <div className="homecontent2">
-            <b>Have a look at what your friends have to say and feel free to voice out your opinions</b>
+            <b>Have a look at what your friends have to say and feel free <br />to voice out your opinions</b>
             <button className="button" onClick={goToCommunity}>Go to Community</button>
           </div>
           <div className="homecontent3">

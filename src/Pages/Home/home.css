@@ -25,6 +25,7 @@
   
   .button {
     padding: 24px 48px;
+    width: 300px;
     font-size: 1.5rem;
     cursor: pointer;
     background-color: brown; /* Green color, you can change it */
@@ -78,4 +79,5 @@
 
   .homecontent b{
     font-size: 1.5rem;
+    width: fit-content;
   }
