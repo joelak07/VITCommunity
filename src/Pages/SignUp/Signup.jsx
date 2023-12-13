@@ -109,6 +109,7 @@ const Signup = () => {
   const handleSignup = async (event) => {
     event.preventDefault(); // Prevent form submission and page reload
     try {
+      const firstLoginTime =new Date().toLocaleDateString() +" "  + new Date().toLocaleTimeString();
       await setDoc(doc(collection(db, "users"), regno), {
         name: userName.substring(0, userName.length - 10),
         batch: batch,
@@ -117,6 +118,7 @@ const Signup = () => {
         branch: brach,
         sem: document.getElementById('sem').value,
         logins:1,
+        logintime: [firstLoginTime],  
       });
       console.log("Document written with ID: ", regno);
       navigate('/home', { state: { userName:userName.substring(0,userName.length-10)} });

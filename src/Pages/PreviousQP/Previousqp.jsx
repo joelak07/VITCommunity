@@ -5,6 +5,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./previousqp.css";
 import Prevqpclosed from "./Prevqpclosed";
 import { useNavigate } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 
 const Previousqp = () => {
   const [coursecode, setCoursecode] = useState("");
@@ -39,6 +40,8 @@ const Previousqp = () => {
   };
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
+
+  const auth=getAuth();
   useEffect(() => {
     if (name === null) {
       navigate('/');
@@ -105,7 +108,7 @@ const Previousqp = () => {
         fileURL: downloadURL,
         timestamp: new Date().toLocaleString(),
         ispq: true,
-        student: name,
+        student: auth.currentUser.displayName,
       });
 
       console.log("Document written with ID: ", docRef.id);

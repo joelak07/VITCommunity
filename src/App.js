@@ -13,7 +13,7 @@ import Pqpage from './Pages/PreviousQP/Pqpage';
 function App() {
   return (
     <div>
-      {/* <Navbar />
+      <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
@@ -25,8 +25,7 @@ function App() {
           <Route path="/pqpage" element={<Pqpage/>} />
           <Route path="*" element={<Login />} />
           
-        </Routes> */}
-        <h1>Under Maintenance</h1>
+        </Routes>
     </div>
   );
 }

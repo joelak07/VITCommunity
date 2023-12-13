@@ -6,6 +6,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useLocation } from "react-router-dom";
 import Note from "./Note";
 import { useNavigate } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 
 const Notespage = () => {
   const location = useLocation();
@@ -19,7 +20,7 @@ const Notespage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
-  const systemname = localStorage.getItem('systemname');
+  const auth=getAuth();
 
   useEffect(()=>{
     if(name===null){
@@ -73,7 +74,7 @@ const Notespage = () => {
         Faculty: faculty,
         Description: description,
         fileURL: downloadURL,
-        student: systemname,
+        student: auth.currentUser.displayName,
         timestamp: new Date().toLocaleString(),
         ispq: false,
       });

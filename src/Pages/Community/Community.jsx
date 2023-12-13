@@ -4,12 +4,14 @@ import Post from './Post';
 import Popup from './Popup';
 import { db } from '../../firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const Community = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
-  const user = localStorage.getItem('systemname');
+  //const user = localStorage.getItem('systemname');
   const [post, setPost] = useState('');
   const [posts, setPosts] = useState([]);
+  const auth=getAuth(); 
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -41,9 +43,9 @@ const Community = () => {
     event.preventDefault();
     try {
       await setDoc(doc(collection(db, 'posts')), {
-        name: user,
+        name: auth.currentUser.displayName,
         content: post,
-        time: new Date().toLocaleString(),
+        time: new Date().toLocaleString('en-US', { hour12: true }),
         likes: 0,
         dislikes: 0,
         fires:0,
@@ -88,7 +90,7 @@ const Community = () => {
         <Popup onClose={closePopup}>
           <div className="popupcontent">
             <h2>Your Voice</h2>
-            <h3>{user}</h3>
+            <h3>{auth.currentUser.displayName}</h3>
             <form>
               <textarea
                 placeholder="Content"
