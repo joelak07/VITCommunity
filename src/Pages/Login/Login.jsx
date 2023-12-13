@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
-    const isMobile = window.innerWidth < 1100;
+    const isMobile = window.innerWidth < 0;
     // const isMobile=window.innerWidth>1100;
 
     useEffect(() => {
