@@ -3,6 +3,11 @@
     justify-content: space-between;
     background-color: antiquewhite;
     height: 100px;
+
+    @media screen and (max-width: 768px) {
+        height: 50px;
+        
+    }
 }
 
 .leftnav{
@@ -17,11 +22,22 @@
     font-size: 4rem;
     margin: 0;
     font-weight: 500;   
+    @media screen and (max-width: 768px) {
+        font-size: 2rem;
+        padding: auto;
+        margin: auto;
+    }
 }
 
 .leftnav span{
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
+    @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-bottom: 4px;
+    }
 }
 
 .rightnav{
@@ -40,6 +56,11 @@
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.8rem;
+        
+    }
 }
 
 .logoutbut:hover{

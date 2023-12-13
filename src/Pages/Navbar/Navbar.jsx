@@ -40,7 +40,7 @@ const Navbar = () => {
             <button className='backbut' onClick={() => handleNavigate('/home')}>Home</button>
             <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}>Community</button>
             <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}>Previous Papers</button>
-            <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}>Notes</button>
+            <button className='notesbut' onClick={() => handleNavigate('/note s', { name: 'YourStateValue' })}>Notes</button>
           </>
         )}
         {isRootPath && (

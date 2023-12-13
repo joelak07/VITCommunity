@@ -1,12 +1,17 @@
 .notesobj {
     width: calc(95.7%/3);
-    height: auto;
+    height: fit-content;
     background-color: rgb(246, 219, 185);
     padding: 12px;
     font-family: 'Poppins', 'sans-serif';
     margin: 10px; 
     box-sizing: border-box;     
     border-radius: 10px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: fit-content;
+      
+    }
 }
 
 .notesobj h3 {

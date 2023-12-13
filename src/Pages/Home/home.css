@@ -1,83 +1,143 @@
-/* Add these styles to your CSS file or style section */
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
 
 .home-container {
   padding: 20px;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+
+  @media screen and (max-width: 768px) {
+    height: 87vh;
   }
-  
-  .heading {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333; /* You can choose your desired color */
+}
+
+.heading {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+
+  /* You can choose your desired color */
+  @media screen and (max-width: 768px) {
+    font-size: 1.2em;
+
   }
-  
-  .user-greeting {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    color: #555; /* You can choose your desired color */
+}
+
+.user-greeting {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: #555;
+  /* You can choose your desired color */
+
+  @media screen and (max-width: 768px) {
+    font-size: 1em;
+
   }
-  
-  .button-container {
-    display: flex;
-    gap: 15px;
+}
+
+.button-container {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 24px 48px;
+  width: 300px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: brown;
+  /* Green color, you can change it */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    width: 250px;
   }
-  
-  .button {
-    padding: 24px 48px;
-    width: 300px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background-color: brown; /* Green color, you can change it */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: darkred; /* Darker green color on hover, you can change it */
-  }
-  
-  .home-content{
-    background-color: antiquewhite;
-    width: max-width;
+}
+
+.button:hover {
+  background-color: darkred;
+  /* Darker green color on hover, you can change it */
+}
+
+.home-content {
+  background-color: antiquewhite;
+  width: max-width;
+  height: 100%;
+  border-radius: 10px;
+
+
+  @media screen and (max-width: 768px) {
     height: 100%;
-    border-radius: 10px;
   }
+}
 
-  .tophome{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    font-family: 'Popins', sans-serif;
-  }
+.tophome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Popins', sans-serif;
 
-  .homecontent{
-    display: flex;
+  @media screen and (max-width: 768px) {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 80%;
-    width: max-width;
+    padding: 0;
+
   }
+}
+
+.homecontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+  width: max-width;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    margin-top: 30px;
+  }
+}
 
 
-  .homecontent1,.homecontent2,.homecontent3{
-    font-family: 'Popins', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0px;
-    width: 95%;
-    height: 40%;
-    border-radius: 10px;
-    background-color: rgb(249, 216, 172);
-    padding: 20px;
-  }
+.homecontent1,
+.homecontent2,
+.homecontent3 {
+  font-family: 'Popins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  width: 95%;
+  height: 40%;
+  border-radius: 10px;
+  background-color: rgb(249, 216, 172);
+  padding: 20px;
 
-  .homecontent b{
-    font-size: 1.5rem;
-    width: fit-content;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    margin-bottom: 50px;
+    height: auto;
+    width: auto;
   }
+}
+
+.homecontent b {
+  font-size: 1.5rem;
+  width: fit-content;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+
+  }
+}
