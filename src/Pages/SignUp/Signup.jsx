@@ -115,7 +115,8 @@ const Signup = () => {
         campus: campus,
         school: school,
         branch: brach,
-        sem: document.getElementById('sem').value
+        sem: document.getElementById('sem').value,
+        logins:1,
       });
       console.log("Document written with ID: ", regno);
       navigate('/home', { state: { userName:userName.substring(0,userName.length-10)} });

@@ -4,7 +4,7 @@ import './login.css';
 import GoogleButton from 'react-google-button';
 import { auth, provider, db } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, increment} from "firebase/firestore";
 import { useEffect } from 'react';
 
 const Login = () => {
@@ -33,6 +33,10 @@ const Login = () => {
                         localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                         localStorage.setItem('systemname', result.user.displayName);
                         console.log('Logged in!');
+
+                        updateDoc(docRef, {
+                            logins: increment(1)
+                        });
 
                         navigate('/home', {
                             state: {
