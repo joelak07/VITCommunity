@@ -45,6 +45,10 @@
     display: flex;
     align-items: center;
     margin-right: 20px;
+    @media screen and (max-width: 768px) {
+        background-color: black;
+        
+    }
 }
 
 .logoutbut{
@@ -187,4 +191,8 @@
         width: 100%;
         border-radius: 0;
     }
+}
+
+.iconbut{
+    background-color: antiquewhite;
 }

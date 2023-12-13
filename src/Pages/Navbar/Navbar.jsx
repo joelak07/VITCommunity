@@ -9,10 +9,10 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community';  
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community';
   const name = localStorage.getItem('userName') || '';
-  const isRestrictedPath = ['/previousqp','/pqpage','/notes','/notespage', '/community'].includes(location.pathname);
-  const shouldDisplayButtons = isRestrictedPath;  
+  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community'].includes(location.pathname);
+  const shouldDisplayButtons = isRestrictedPath;
 
   const handleLogout = () => {
     const nav = document.getElementById('respNav');
@@ -66,19 +66,19 @@ const Navbar = () => {
             Logout
           </button>
         )}
-        {shouldDisplayButtons && 
+        {shouldDisplayButtons &&
           <button className='iconbut' onClick={handleResp}>
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faBars} className='navobut' />
           </button>
         }
       </div>
-      {location.pathname==='/home' && (
+      {location.pathname === '/home' && (
         <div className='homeNav'>
-        <button className='logoutbut' onClick={handleLogout}>
-        Logout
-        </button>
+          <button className='logoutbut' onClick={handleLogout}>
+            Logout
+          </button>
         </div>
-        )
+      )
       }
     </div>
   );

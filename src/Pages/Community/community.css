@@ -13,6 +13,11 @@
     border-radius: 10px;
     padding-top: 0;
     height: 95%;
+    @media screen and (max-width: 768px) {
+        margin: 10px;
+        margin-top: 20px;
+      
+    }
 }
 
 .namebar{
@@ -25,7 +30,15 @@
     align-items: center;
     background-color: rgb(248, 218, 178);
     border-radius: 10px 10px 0px 0px;
+
+    @media screen and (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 10px;
+      
+    }
 }
+
+
 
 .fabut{
     padding: 4px;
@@ -100,5 +113,10 @@
     margin-right: 28px;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 768px) {
+        margin-right: 5px;
+      
+    }
   }
   

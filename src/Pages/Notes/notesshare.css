@@ -24,6 +24,7 @@
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding-left: 10px;
+    margin: 10px;
   }
 }
 
@@ -106,6 +107,12 @@
   padding: 10px;
   width: max-width;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 768px) {
+    margin: 10px;
+    margin-top: 20px;
+    
+  }
 }
 
 .searchcont{
@@ -126,7 +133,7 @@
   @media screen and (max-width: 768px) {
     margin-right: 0;
     margin-top: 5px;
-    
+    width: auto;
   }
 }
 
@@ -136,6 +143,10 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+  @media screen and (max-width: 768px) {
+    font-size: 13px
+  }
+  
 }
 
 .notessearchbar button {
@@ -147,6 +158,10 @@
   cursor: pointer;
   font-size: 16px;
   margin-left: 10px;
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
+  }
+
 }
 
 .notessearchbar button:hover {
@@ -163,7 +178,7 @@
 
   @media screen and (max-width: 768px) {
     margin-top: 0;
-    max-height: 90%;
+    max-height: 85%;
     overflow-y: auto;
   }
 }

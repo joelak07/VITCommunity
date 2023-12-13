@@ -7,6 +7,11 @@
     background-color: #fff;
     width: max-width;
     height: auto;
+    @media screen and (max-width: 768px) {
+      margin: 10px;
+      margin-top: 20px;
+      
+    }
   }
   
   .namepost {
@@ -23,6 +28,10 @@
     font-family: 'Montserrat', sans-serif;
     color: #333;
     padding: 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
   .postcont{
     height: auto;
@@ -30,11 +39,27 @@
   
   .datetime {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     font-size: 0.8rem;
     color: #888;
     margin: 0;
     padding: 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.7rem;
+      justify-content: right;
+    }
+  }
+
+  .datetime p{
+    margin: 0;
+    padding: 0;
+
+    @media screen and (max-width: 768px) {
+      /* position: relative;
+      right: -20px; */
+      text-align: right;
+    }
   }
   
   .postcont p {
@@ -42,6 +67,11 @@
     font-size: 1.7rem;
     color: #555;
     padding: 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+      
+    }
   }
   
   .likes {
