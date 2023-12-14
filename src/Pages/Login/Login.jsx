@@ -28,9 +28,8 @@ const Login = () => {
                     const regno = result.user.displayName.substring(result.user.displayName.length - 9);
                     const docRef = doc(db, "users", regno);
                     const docSnap = await getDoc(docRef);
-                    const existingLogins = docSnap.data().logintime || [];
                     const newLoginTime = new Date().toLocaleDateString() +" "  + new Date().toLocaleTimeString();
-                    const updatedLogins = [...existingLogins, newLoginTime];
+            
                     if (docSnap.exists()) {
                         // Store userName in localStorage
                         localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
@@ -42,7 +41,6 @@ const Login = () => {
                             logintime: arrayUnion(newLoginTime),
                         });
 
-                       // console.log('Updated logintime array:', updatedLogins);
 
                         navigate('/home', {
                             state: {
