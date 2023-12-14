@@ -234,7 +234,7 @@
   flex-wrap: wrap;
   overflow-y: auto;
   max-height: 430px;
-  padding-top: 30px;
+  margin-top: 30px;
 }
 
 .topuploadbox{

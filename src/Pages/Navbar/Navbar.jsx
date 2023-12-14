@@ -66,9 +66,14 @@ const Navbar = () => {
     }*/
     const html = document.documentElement;
     const nav = document.getElementById('respNav');
-    setIsMenuOpen(true);
-    nav.classList.add('responsive');
-    html.addEventListener('click', closeNavOnClick);
+    if (nav.classList.contains('responsive')) {
+      closeNav();
+    }
+    else {
+      setIsMenuOpen(true);
+      nav.classList.add('responsive');
+      html.addEventListener('click', closeNavOnClick);
+    }
   };
 
   return (
