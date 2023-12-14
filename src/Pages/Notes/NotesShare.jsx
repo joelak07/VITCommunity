@@ -17,6 +17,10 @@ const NotesShare = () => {
   const name = localStorage.getItem('userName');
   useEffect(()=>{
     if(name===null){
+      const nav = document.getElementById('respNav');
+      if (nav.classList.contains('responsive')) {
+        nav.classList.remove('responsive');
+      }
       navigate('/');
       return;
     }

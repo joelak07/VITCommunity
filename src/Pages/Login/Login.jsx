@@ -13,6 +13,10 @@ const Login = () => {
     // const isMobile=window.innerWidth>1100;
 
     useEffect(() => {
+        const nav = document.getElementById('respNav');
+        if (nav.classList.contains('responsive')) {
+        nav.classList.remove('responsive');
+        }
         if (isMobile) {
             alert('This web app is best viewed on a PC. Please open it on a computer.');
         }

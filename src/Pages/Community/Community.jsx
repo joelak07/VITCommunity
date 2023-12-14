@@ -11,9 +11,13 @@ const Community = () => {
   //const user = localStorage.getItem('systemname');
   const [post, setPost] = useState('');
   const [posts, setPosts] = useState([]);
-  const auth=getAuth(); 
+  const auth=getAuth();
 
   useEffect(() => {
+    const nav = document.getElementById('respNav');
+    if (nav.classList.contains('responsive')) {
+      nav.classList.remove('responsive');
+    }
     const fetchPosts = async () => {
       try {
         const postsSnapshot = await getDocs(collection(db, 'posts'));

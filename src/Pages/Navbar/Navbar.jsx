@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,12 +13,14 @@ const Navbar = () => {
   const name = localStorage.getItem('userName') || '';
   const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community'].includes(location.pathname);
   const shouldDisplayButtons = isRestrictedPath;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
     }
+    setIsMenuOpen(false);
     localStorage.removeItem('userName');
     signOut(auth)
       .then(() => {
@@ -35,16 +37,38 @@ const Navbar = () => {
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
     }
+    setIsMenuOpen(false);
     navigate(path, { state: { ...state, name } });
   };
 
-  const handleResp = () => {
+  const closeNav = () => {
+    const html = document.documentElement;
     const nav = document.getElementById('respNav');
+    setIsMenuOpen(false);
+    nav.classList.remove('responsive');
+    html.removeEventListener('click', closeNavOnClick);
+  }
+
+  const closeNavOnClick = (event) => {
+    const path = event.composedPath();
+    if (path.some(elem => elem.id === 'respNav')) {
+      return;
+    }
+    closeNav();
+  }
+
+  const handleResp = () => {
+    /*const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
     } else {
       nav.classList.add('responsive');
-    }
+    }*/
+    const html = document.documentElement;
+    const nav = document.getElementById('respNav');
+    setIsMenuOpen(true);
+    nav.classList.add('responsive');
+    html.addEventListener('click', closeNavOnClick);
   };
 
   return (
@@ -67,8 +91,8 @@ const Navbar = () => {
           </button>
         )}
         {shouldDisplayButtons &&
-          <button className='iconbut' onClick={handleResp}>
-            <FontAwesomeIcon icon={faBars} className='navobut' />
+          <button className='iconbut' id='iconbutcontent' onClick={handleResp}>
+            <FontAwesomeIcon icon={isMenuOpen?faMinus:faBars} className='navobut' />
           </button>
         }
       </div>

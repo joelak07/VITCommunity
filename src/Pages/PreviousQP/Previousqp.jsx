@@ -43,6 +43,10 @@ const Previousqp = () => {
 
   const auth=getAuth();
   useEffect(() => {
+    const nav = document.getElementById('respNav');
+    if (nav.classList.contains('responsive')) {
+      nav.classList.remove('responsive');
+    }
     if (name === null) {
       navigate('/');
       return;

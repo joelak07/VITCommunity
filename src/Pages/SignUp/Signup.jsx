@@ -20,6 +20,10 @@ const Signup = () => {
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
   useEffect(()=>{
+    const nav = document.getElementById('respNav');
+    if (nav.classList.contains('responsive')) {
+      nav.classList.remove('responsive');
+    }
     if(name===null){
       navigate('/');
       return;
