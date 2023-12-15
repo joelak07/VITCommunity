@@ -28,6 +28,10 @@ const Home = () => {
     navigate('/notes', { state: { name } });
   };
 
+  const goToFeedback = () => {
+    navigate('/feedback');
+  };
+
   return (
     <div className="home-container">
       {/* <h2 className="heading">Welcome to the Home Page!</h2>
@@ -55,6 +59,11 @@ const Home = () => {
             <b>View and Upload study material and grow together</b>
             <button className="button" onClick={goToNotes}>Resources</button>
           </div>
+          <div className="homecontent3">
+            <b>Share your valuable Feedback here</b>
+            <button className="button" onClick={goToFeedback}>Feedback</button>
+          </div>
+         
         </div>
       </div>
 
