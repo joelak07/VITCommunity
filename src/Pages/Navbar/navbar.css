@@ -195,6 +195,12 @@
         width: 100%;
         border-radius: 0;
     }
+    .Navbar.responsive .backbut:hover,
+    .logoutbut:hover,
+    .notesbut:hover,
+    .paperbut:hover {
+        transform: none;
+    }
     .homeNav .paperbut {
         background: none;
         color: #333;
