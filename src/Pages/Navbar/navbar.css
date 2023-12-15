@@ -195,6 +195,11 @@
         width: 100%;
         border-radius: 0;
     }
+    .homeNav .paperbut {
+        background: none;
+        color: #333;
+        margin: 10px;
+    }
 }
 
 .iconbut{

@@ -4,7 +4,7 @@ import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus, faUser, faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -108,8 +108,11 @@ const Navbar = () => {
       </div>
       {location.pathname === '/home' && (
         <div className='homeNav'>
+          <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}>
+            <FontAwesomeIcon icon={faUser} />
+          </button>
           <button className='logoutbut' onClick={handleLogout}>
-            Logout
+            <FontAwesomeIcon icon={faSignOut} />
           </button>
         </div>
       )
