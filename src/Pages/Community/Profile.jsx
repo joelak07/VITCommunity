@@ -3,14 +3,36 @@ import "./profile.css";
 import { db } from "../../firebase";
 import { collection, doc, getDoc, setDoc, getDocs } from "firebase/firestore";
 import Post from "./Post";
+import { useNavigate } from "react-router-dom";
+
 
 const Profile = () => {
   const [formData, setFormData] = useState("");
   const [sem, setSem] = useState("");
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   const fullName = localStorage.getItem('systemname');
   const regno = fullName.substring(fullName.length - 9);
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('Search Term:', searchTerm);
+    const docRef = doc(db, "users", searchTerm);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      if (searchTerm === regno) {
+        alert('You are already viewing your profile!');
+        return;
+      }
+      navigate('/profileview', { state: { regno: searchTerm } });
+    }
+    else {
+      alert('User does not exist!');
+    }
+  };
 
 
   useEffect(() => {
@@ -90,6 +112,19 @@ const Profile = () => {
         <div className="leftprof">
           <h1>{formData.name}</h1>
           <h2>{formData.docID}</h2>
+          <div className="searchprof">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Search for a user based on regno.."
+                name="search"
+                id="search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
         </div>
         <div className="rightprof">
           <form id="editForm">
@@ -146,19 +181,24 @@ const Profile = () => {
       <div className="respostuser">
         <h2>Your Posts</h2>
         <div className="myvoices">
-          {posts.map((post) => (
-            <Post
-              key={post.id}
-              content={post.content}
-              student={post.name}
-              time={post.time}
-              likes={post.likes}
-              postId={post.id}
-              dislikes={post.dislikes}
-              fires={post.fires}
-            />
-          ))}
+          {posts.length === 0 ? (
+            <h2>You haven't posed yet😔</h2>
+          ) : (
+            posts.map((post) => (
+              <Post
+                key={post.id}
+                content={post.content}
+                student={post.name}
+                time={post.time}
+                likes={post.likes}
+                postId={post.id}
+                dislikes={post.dislikes}
+                fires={post.fires}
+              />
+            ))
+          )}
         </div>
+
       </div>
     </div>
   );

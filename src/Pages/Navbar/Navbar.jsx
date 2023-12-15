@@ -9,9 +9,9 @@ import { faBars, faMinus, faUser, faSignOut } from '@fortawesome/free-solid-svg-
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community'|| location.pathname === '/feedback' || location.pathname === '/profile';
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community'|| location.pathname === '/feedback' || location.pathname === '/profile'|| location.pathname === '/profileview';
   const name = localStorage.getItem('userName') || '';
-  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile'].includes(location.pathname);
+  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile', '/profileview'].includes(location.pathname);
   const shouldDisplayButtons = isRestrictedPath;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
