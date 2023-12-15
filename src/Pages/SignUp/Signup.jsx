@@ -112,6 +112,10 @@ const Signup = () => {
 
   const handleSignup = async (event) => {
     event.preventDefault(); // Prevent form submission and page reload
+    if(campus==='' || school==='' || brach===''){
+      alert('Please fill all the fields');
+      return;
+    }
     try {
       const firstLoginTime =new Date().toLocaleDateString() +" "  + new Date().toLocaleTimeString();
       await setDoc(doc(collection(db, "users"), regno), {
