@@ -4,7 +4,7 @@ import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMinus, faUser, faSignOut, faHome, faEarthAmericas, faNoteSticky, faPen, faHourglass1, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus, faUser, faSignOut, faHome, faEarthAmericas, faNoteSticky, faPen, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const navigate = useNavigate();
