@@ -143,14 +143,14 @@ const Signup = () => {
           <input id="batch" type="text" value={batch} readOnly className="form-input" />
 
           <label htmlFor="campus" className="form-label">Select Campus:</label>
-          <select id="campus" name="campus" value={campus} onChange={handleCampusChange} className="form-select">
+          <select id="campus" name="campus" value={campus} onChange={handleCampusChange} required className="form-select">
             <option value="">Select your campus</option>
             <option value="chennai">Chennai</option>
             <option value="vellore">Vellore</option>
           </select>
 
           <label htmlFor="schools" className="form-label">Select School:</label>
-          <select id="schools" name="schools" onChange={handleSchoolChange} className="form-select">
+          <select id="schools" required name="schools" onChange={handleSchoolChange} className="form-select">
             <option value="">Select your school</option>
             {schools.map((schoolId) => (
               <option key={schoolId} value={schoolId}>
@@ -160,7 +160,7 @@ const Signup = () => {
           </select>
 
           <label htmlFor="branch" className="form-label">Select Branch:</label>
-          <select id="branch" name="branch" className="form-select" onChange={handleBranchChange}>
+          <select id="branch" name="branch" className="form-select" required onChange={handleBranchChange}>
             <option value="">Select your branch</option>
             {branch.map((branchId) => (
               <option key={branchId} value={branchId}>
