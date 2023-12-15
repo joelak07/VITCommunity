@@ -10,6 +10,7 @@ import NotesShare from './Pages/Notes/NotesShare';
 import Notespage from './Pages/Notes/Notespage';
 import Pqpage from './Pages/PreviousQP/Pqpage';
 import Feedback from './Pages/Feedback/Feedback';
+import Profile from './Pages/Community/Profile';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/notespage" element={<Notespage/>} />
           <Route path="/pqpage" element={<Pqpage/>} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Login />} />
           
         </Routes>

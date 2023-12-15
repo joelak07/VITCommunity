@@ -1,0 +1,108 @@
+.profile {
+    height: auto;
+    padding: 20px;
+    font-family: 'poppins', sans-serif;
+  }
+  
+  .profdetails {
+    width: 100%;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .leftprof {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    padding-left: 20px;
+  }
+  
+  .leftprof h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  .leftprof h2{
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .rightprof {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  
+  .rightprof form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    justify-content: right;
+  }
+  
+  /* .rightprof .form-label {
+    margin-bottom: 5px;
+  } */
+  
+  .rightprof input,
+  .rightprof select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .rightprof select {
+    cursor: pointer;
+  }
+  
+  .rightprof input:hover,
+  .rightprof select:hover {
+    border-color: #555;
+  }
+  
+  .rightprof button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .rightprof button:hover {
+    background-color: #45a049;
+  }
+  
+  .myvoices{
+    width: auto;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 10px;
+  }
+
+  .respostuser{
+    width: auto;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .respostuser h2{
+    margin-left: 20px;
+  }

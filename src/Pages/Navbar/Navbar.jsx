@@ -9,9 +9,9 @@ import { faBars, faMinus } from '@fortawesome/free-solid-svg-icons';
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community'|| location.pathname === '/feedback';
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community'|| location.pathname === '/feedback' || location.pathname === '/profile';
   const name = localStorage.getItem('userName') || '';
-  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback'].includes(location.pathname);
+  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile'].includes(location.pathname);
   const shouldDisplayButtons = isRestrictedPath;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -89,13 +89,16 @@ const Navbar = () => {
             <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}>Previous Papers</button>
             <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}>Notes</button>
             <button className='paperbut' onClick={() => handleNavigate('/feedback', { name: 'YourStateValue' })}>Feedback</button>
-
           </>
         )}
         {isRootPath && (
+          <>
+          <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}>Profile</button>
           <button className='logoutbut' onClick={handleLogout}>
             Logout
           </button>
+          
+          </>
         )}
         {shouldDisplayButtons &&
           <button className='iconbut' id='iconbutcontent' onClick={handleResp}>

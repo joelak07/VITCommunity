@@ -45,6 +45,10 @@ const Community = () => {
 
   const handlepost = async (event) => {
     event.preventDefault();
+    if(post===''){
+      alert('Post Should not be blank');
+      return;
+    }
     try {
       await setDoc(doc(collection(db, 'posts')), {
         name: auth.currentUser.displayName,
