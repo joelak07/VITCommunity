@@ -24,11 +24,11 @@ const Profile = () => {
     const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      if (searchTerm === regno) {
+      if (searchTerm.toUpperCase() === regno) {
         alert('You are already viewing your profile!');
         return;
       }
-      navigate('/profileview', { state: { regno: searchTerm } });
+      navigate('/profileview', { state: { regno: searchTerm.toUpperCase() } });
     }
     else {
       alert('User does not exist!');

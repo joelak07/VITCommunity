@@ -81,7 +81,7 @@ const Profileview = () => {
             navigate('/profile');
         }
         else{
-            navigate('/profileview', { state: { regno: searchTerm } });
+            navigate('/profileview', { state: { regno: searchTerm.toUpperCase() } });
         }
       
     }
