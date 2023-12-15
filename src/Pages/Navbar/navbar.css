@@ -8,7 +8,6 @@
     box-shadow: 0px 1px 10px #999;
     z-index: 1;
     transition: background-color 125ms linear;
-    transition: color 125ms linear;
 
     @media screen and (max-width: 768px) {
         height: 50px;
@@ -23,6 +22,7 @@
     margin-left: 20px;
     padding-bottom: 2px;
     color: black;
+    transition: color 125ms linear;
 }
 
 .leftnav h2{
@@ -172,6 +172,7 @@
         float: right;
         display: block;
         transition: color 125ms linear;
+        transition: background-color 125ms linear;
     }
 }
 
@@ -182,6 +183,10 @@
         background-color: black;
         color: #e2e2e2;
         transition: background-color 125ms linear;
+        transition: color 125ms linear;
+    }
+    .Navbar.responsive .momi .leftnav {
+        color: #e2e2e2;
         transition: color 125ms linear;
     }
     .Navbar.responsive .rightnav {
