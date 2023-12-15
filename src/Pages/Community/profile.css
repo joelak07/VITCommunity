@@ -106,3 +106,35 @@
   .respostuser h2{
     margin-left: 20px;
   }
+
+
+  @media screen and (max-width:1110px) {
+    .profdetails {
+      display: block;
+    }
+    .profdetails .rightprof {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .profdetails .rightprof input, select, label {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 10px;
+    }
+    .profdetails .rightprof label {
+      margin-bottom: 2px;
+    }
+    .profdetails .leftprof {
+      padding-bottom: 20px;
+    }
+    .leftprof h1 {
+      font-size: 2rem;
+    }
+    .leftprof h2 {
+      font-size: 1.2rem;
+      width: 100%;
+      text-align: right;
+      color: #555;
+    }
+  }
