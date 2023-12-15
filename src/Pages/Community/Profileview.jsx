@@ -77,7 +77,7 @@ const Profileview = () => {
     const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        if (searchTerm === checkregno) {
+        if (searchTerm.toUpperCase() === checkregno) {
             navigate('/profile');
         }
         else{
