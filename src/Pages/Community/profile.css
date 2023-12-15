@@ -132,11 +132,13 @@
     }
     .leftprof h1 {
       font-size: 2rem;
+      width: 100%;
+      text-align: center;
     }
     .leftprof h2 {
       font-size: 1.2rem;
       width: 100%;
-      text-align: right;
+      text-align: center;
       color: #555;
     }
   }
