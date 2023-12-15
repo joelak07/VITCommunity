@@ -14,6 +14,7 @@ const Profile = () => {
 
   const fullName = localStorage.getItem('systemname');
   const regno = fullName.substring(fullName.length - 9);
+  localStorage.setItem('checkregno', regno)
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -108,23 +109,25 @@ const Profile = () => {
 
   return (
     <div className="profile">
+      <div className="searchprof">
+        <h2>Search User</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search for a user based on regno.."
+            name="search"
+            id="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
       <div className="profdetails">
         <div className="leftprof">
           <h1>{formData.name}</h1>
           <h2>{formData.docID}</h2>
-          <div className="searchprof">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Search for a user based on regno.."
-                name="search"
-                id="search"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button type="submit">Search</button>
-            </form>
-          </div>
         </div>
         <div className="rightprof">
           <form id="editForm">
