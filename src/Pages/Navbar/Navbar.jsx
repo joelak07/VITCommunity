@@ -4,7 +4,7 @@ import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMinus, faUser, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus, faUser, faSignOut, faHome, faEarthAmericas, faNoteSticky, faPen, faHourglass1, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -84,18 +84,18 @@ const Navbar = () => {
       <div className="rightnav">
         {shouldDisplayButtons && (
           <>
-            <button className='backbut' onClick={() => handleNavigate('/home')}>Home</button>
-            <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}>Community</button>
-            <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}>Previous Papers</button>
-            <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}>Notes</button>
-            <button className='paperbut' onClick={() => handleNavigate('/feedback', { name: 'YourStateValue' })}>Feedback</button>
+            <button className='backbut' onClick={() => handleNavigate('/home')}><FontAwesomeIcon icon={faHome} className='navIcon' />Home</button>
+            <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faEarthAmericas} className='navIcon' />Community</button>
+            <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faHourglass2} className='navIcon' />Previous Papers</button>
+            <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faNoteSticky} className='navIcon' />Notes</button>
+            <button className='paperbut' onClick={() => handleNavigate('/feedback', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faPen} className='navIcon' />Feedback</button>
           </>
         )}
         {isRootPath && (
           <>
-          <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}>Profile</button>
+          <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
           <button className='logoutbut' onClick={handleLogout}>
-            Logout
+            <FontAwesomeIcon icon={faSignOut} className='navIcon' />Logout
           </button>
           
           </>
