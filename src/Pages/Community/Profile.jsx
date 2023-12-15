@@ -21,7 +21,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Search Term:', searchTerm);
-    const docRef = doc(db, "users", searchTerm);
+    const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       if (searchTerm === regno) {
@@ -114,7 +114,7 @@ const Profile = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Search for a user based on regno.."
+            placeholder="Enter Reg no.."
             name="search"
             id="search"
             value={searchTerm}

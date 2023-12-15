@@ -4,12 +4,13 @@ import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMinus, faUser, faSignOut, faHome, faEarthAmericas, faNoteSticky, faPen, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus, faUser, faSignOut, faEarthAmericas, faNoteSticky, faPen, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community'|| location.pathname === '/feedback' || location.pathname === '/profile'|| location.pathname === '/profileview';
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community' || location.pathname === '/feedback' || location.pathname === '/profile' || location.pathname === '/profileview';
   const name = localStorage.getItem('userName') || '';
   const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile', '/profileview'].includes(location.pathname);
   const shouldDisplayButtons = isRestrictedPath;
@@ -58,12 +59,6 @@ const Navbar = () => {
   }
 
   const handleResp = () => {
-    /*const nav = document.getElementById('respNav');
-    if (nav.classList.contains('responsive')) {
-      nav.classList.remove('responsive');
-    } else {
-      nav.classList.add('responsive');
-    }*/
     const html = document.documentElement;
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
@@ -78,13 +73,15 @@ const Navbar = () => {
 
   return (
     <div className='Navbar' id="respNav">
-      <div className="leftnav">
-        <h2>VIT</h2><span>Community</span>
-      </div>
+      <Link to="/home" className='momi'>
+        <div className="leftnav"> 
+          <h2>VIT</h2><span>Community</span>
+        </div>
+      </Link>
       <div className="rightnav">
         {shouldDisplayButtons && (
           <>
-            <button className='backbut' onClick={() => handleNavigate('/home')}><FontAwesomeIcon icon={faHome} className='navIcon' />Home</button>
+            {/* <button className='backbut' onClick={() => handleNavigate('/home')}><FontAwesomeIcon icon={faHome} className='navIcon' />Home</button> */}
             <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faEarthAmericas} className='navIcon' />Community</button>
             <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faHourglass2} className='navIcon' />Previous Papers</button>
             <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faNoteSticky} className='navIcon' />Notes</button>
@@ -93,16 +90,16 @@ const Navbar = () => {
         )}
         {isRootPath && (
           <>
-          <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
-          <button className='logoutbut' onClick={handleLogout}>
-            <FontAwesomeIcon icon={faSignOut} className='navIcon' />Logout
-          </button>
-          
+            <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
+            <button className='logoutbut' onClick={handleLogout}>
+              <FontAwesomeIcon icon={faSignOut} className='navIcon' />Logout
+            </button>
+
           </>
         )}
         {shouldDisplayButtons &&
           <button className='iconbut' id='iconbutcontent' onClick={handleResp}>
-            <FontAwesomeIcon icon={isMenuOpen?faMinus:faBars} className='navobut' />
+            <FontAwesomeIcon icon={isMenuOpen ? faMinus : faBars} className='navobut' />
           </button>
         }
       </div>

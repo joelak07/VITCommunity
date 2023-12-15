@@ -9,66 +9,59 @@ import { useEffect } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
-    const isMobile = window.innerWidth < 0;
-    // const isMobile=window.innerWidth>1100;
 
     useEffect(() => {
         const nav = document.getElementById('respNav');
         if (nav.classList.contains('responsive')) {
-        nav.classList.remove('responsive');
+            nav.classList.remove('responsive');
         }
-        if (isMobile) {
-            alert('This web app is best viewed on a PC. Please open it on a computer.');
-        }
-    }, [isMobile]);
+    }, []);
 
     const loggingin = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
-            if (!isMobile) {
-                if (result.user.email.split('@')[1] !== 'vitstudent.ac.in') {
-                    alert('Login with your VIT email ID!');
+
+            if (result.user.email.split('@')[1] !== 'vitstudent.ac.in') {
+                alert('Login with your VIT email ID!');
+            } else {
+                const regno = result.user.displayName.substring(result.user.displayName.length - 9);
+                const docRef = doc(db, "users", regno);
+                const docSnap = await getDoc(docRef);
+                const newLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+
+                if (docSnap.exists()) {
+                    // Store userName in localStorage
+                    localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
+                    localStorage.setItem('systemname', result.user.displayName);
+                    console.log('Logged in!');
+
+                    updateDoc(docRef, {
+                        logins: increment(1),
+                        logintime: arrayUnion(newLoginTime),
+                    });
+
+
+                    navigate('/home', {
+                        state: {
+                            userToken: result.user.accessToken,
+                            nametoken: result.user.displayName,
+                        },
+                    });
                 } else {
-                    const regno = result.user.displayName.substring(result.user.displayName.length - 9);
-                    const docRef = doc(db, "users", regno);
-                    const docSnap = await getDoc(docRef);
-                    const newLoginTime = new Date().toLocaleDateString() +" "  + new Date().toLocaleTimeString();
-            
-                    if (docSnap.exists()) {
-                        // Store userName in localStorage
-                        localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
-                        localStorage.setItem('systemname', result.user.displayName);
-                        console.log('Logged in!');
-
-                        updateDoc(docRef, {
-                            logins: increment(1),
-                            logintime: arrayUnion(newLoginTime),
-                        });
-
-
-                        navigate('/home', {
-                            state: {
-                                userToken: result.user.accessToken,
-                                nametoken: result.user.displayName,
-                            },
-                        });
-                    } else {
-                        localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
-                        localStorage.setItem('systemname', result.user.displayName);
-                        console.log('User does not exist in database');
-                        navigate('/signup', {
-                            state: {
-                                userToken: result.user.accessToken,
-                                regno: regno,
-                                userName: result.user.displayName,
-                            },
-                        });
-                    }
+                    localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
+                    localStorage.setItem('systemname', result.user.displayName);
+                    console.log('User does not exist in database');
+                    navigate('/signup', {
+                        state: {
+                            userToken: result.user.accessToken,
+                            regno: regno,
+                            userName: result.user.displayName,
+                        },
+                    });
                 }
             }
-            else {
-                alert("Open in a Desktop or Laptop to log in!");
-            }
+
+
         } catch (error) {
             console.error('Error logging in:', error);
         }

@@ -1,5 +1,4 @@
 import React from "react";
-import "./profileview.css";
 import { db } from "../../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useState, useEffect } from "react";
@@ -75,7 +74,7 @@ const Profileview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Search Term:', searchTerm);
-    const docRef = doc(db, "users", searchTerm);
+    const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
         if (searchTerm === checkregno) {
@@ -98,7 +97,7 @@ const Profileview = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Search for a user based on regno.."
+            placeholder="Enter regno.."
             name="search"
             id="search"
             value={searchTerm}
@@ -159,7 +158,7 @@ const Profileview = () => {
         <h2>Posts</h2>
         <div className="myvoices">
           {posts.length === 0 ? (
-            <h2>User has no posts</h2>
+            <h2>User hasn't posted yet</h2>
           ) : (
             posts.map((post) => (
               <Post

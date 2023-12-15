@@ -61,7 +61,7 @@ const Signup = () => {
     const fetchData = async () => {
       if (campus) {
         try {
-          const querySnapshot = await getDocs(collection(db, campus));
+          const querySnapshot = await getDocs(collection(db, campus.toLowerCase()));
           const schoolsData = querySnapshot.docs.map(doc => doc.id);
           setSchools(schoolsData);
           console.log('Schools:', schoolsData);
@@ -78,7 +78,7 @@ const Signup = () => {
     const fetchBranches = async () => {
       if (school) {
         try {
-          const schoolDocRef = doc(db, campus, school);
+          const schoolDocRef = doc(db, campus.toLowerCase(), school);
           const schoolDocSnapshot = await getDoc(schoolDocRef);
 
           if (schoolDocSnapshot.exists()) {
@@ -149,8 +149,8 @@ const Signup = () => {
           <label htmlFor="campus" className="form-label">Select Campus:</label>
           <select id="campus" name="campus" value={campus} onChange={handleCampusChange} required className="form-select">
             <option value="">Select your campus</option>
-            <option value="chennai">Chennai</option>
-            <option value="vellore">Vellore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Vellore">Vellore</option>
           </select>
 
           <label htmlFor="schools" className="form-label">Select School:</label>
