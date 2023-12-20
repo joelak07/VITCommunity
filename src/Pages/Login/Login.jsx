@@ -21,9 +21,9 @@ const Login = () => {
         try {
             const result = await signInWithPopup(auth, provider);
 
-            if (result.user.email.split('@')[1] !== 'vitstudent.ac.in') {
-                alert('Login with your VIT email ID!');
-            } else {
+            // if (result.user.email.split('@')[1] !== 'vitstudent.ac.in') {
+            //     alert('Login with your VIT email ID!');
+            // } else {
                 const regno = result.user.displayName.substring(result.user.displayName.length - 9);
                 const docRef = doc(db, "users", regno);
                 const docSnap = await getDoc(docRef);
@@ -57,7 +57,7 @@ const Login = () => {
                         },
                     });
                 }
-            }
+            // }
 
 
         } catch (error) {
