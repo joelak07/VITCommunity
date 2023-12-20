@@ -59,7 +59,6 @@ const NotesShare = () => {
         subjectCode: subjectCode,
         subjectName: subjectName,
       });
-      console.log("Document written with ID: ", subjectCode);
       setSubjectCode('');
       setSubjectName('');
       alert("Subject Added")

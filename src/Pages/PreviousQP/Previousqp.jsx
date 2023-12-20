@@ -33,7 +33,6 @@ const Previousqp = () => {
         subjectCode: coursecode,
         subjectName: coursetitle,
       });
-      console.log("Document written with ID: ", coursecode);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -59,7 +58,6 @@ const Previousqp = () => {
         const papersSnapshot = await getDocs(collection(db, 'prevqp'));
         const papersData = papersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setPapers(papersData);
-        console.log(papersData);
       } catch (error) {
         console.error('Error fetching subjects:', error);
       }
@@ -115,7 +113,6 @@ const Previousqp = () => {
         student: auth.currentUser.displayName,
       });
 
-      console.log("Document written with ID: ", docRef.id);
       alert("File uploaded successfully!");
       window.location.reload();
 

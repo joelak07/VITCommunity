@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { db } from '../../firebase';
-import { collection, getDocs, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import './signup.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Signup = () => {
   const [schools, setSchools] = useState([]);
   const [school, setSchool] = useState('');
   const [branch, setBranch] = useState([]);
-  const [brach, setBrach]=useState('');
+  const [brach, setBrach] = useState('');
   const location = useLocation();
   const [userName, setUserName] = useState('');
   const [batch, setBatch] = useState('');
@@ -19,16 +19,16 @@ const Signup = () => {
 
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
-  useEffect(()=>{
+  useEffect(() => {
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
     }
-    if(name===null){
+    if (name === null) {
       navigate('/');
       return;
     }
-  },[name, navigate]);
+  }, [name, navigate]);
 
   useEffect(() => {
     if (location.state && location.state.regno) {
@@ -36,9 +36,9 @@ const Signup = () => {
     } else {
       console.error('User information not found in location state');
       navigate('/error');
-      
+
     }
-  }, [location.state,navigate]);
+  }, [location.state, navigate]);
 
   useEffect(() => {
     if (location.state && location.state.userName) {
@@ -47,7 +47,7 @@ const Signup = () => {
       console.error('User information not found in location state');
       navigate('/error');
     }
-  }, [location.state,navigate]);
+  }, [location.state, navigate]);
 
   useEffect(() => {
     if (location.state && location.state.regno) {
@@ -64,7 +64,6 @@ const Signup = () => {
           const querySnapshot = await getDocs(collection(db, campus.toLowerCase()));
           const schoolsData = querySnapshot.docs.map(doc => doc.id);
           setSchools(schoolsData);
-          console.log('Schools:', schoolsData);
         } catch (error) {
           console.error('Error fetching schools:', error);
         }
@@ -73,6 +72,21 @@ const Signup = () => {
 
     fetchData();
   }, [campus]);
+
+  useEffect(() => {
+    const countDocuments = async () => {
+      try {
+        const snapshot = await getDocs(collection(db, 'users'), "count");
+        const count = snapshot.size;
+        console.log('Number of documents in "users" collection:', count);
+      } catch (error) {
+        console.error('Error counting documents:', error);
+      }
+    };
+
+    // Call the function to count documents when the component mounts
+    countDocuments();
+  }, []);
 
   useEffect(() => {
     const fetchBranches = async () => {
@@ -84,7 +98,6 @@ const Signup = () => {
           if (schoolDocSnapshot.exists()) {
             const branchesData = schoolDocSnapshot.data().branch || [];
             setBranch(branchesData);
-            console.log('Branches:', branchesData);
           }
         } catch (error) {
           console.error('Error fetching branches:', error);
@@ -112,12 +125,25 @@ const Signup = () => {
 
   const handleSignup = async (event) => {
     event.preventDefault(); // Prevent form submission and page reload
-    if(campus==='' || school==='' || brach===''){
+    if (campus === '' || school === '' || brach === '') {
       alert('Please fill all the fields');
       return;
     }
+
     try {
-      const firstLoginTime =new Date().toLocaleDateString() +" "  + new Date().toLocaleTimeString();
+      // Get the current count document
+      const countDocRef = doc(db, 'users', 'count');
+      const countDocSnap = await getDoc(countDocRef);
+      const currentCount = countDocSnap.data().users;
+      await updateDoc(countDocRef, { users: currentCount + 1 });
+      console.log('Incremented count in "users" collection:', currentCount + 1);
+
+    } catch (error) {
+      console.error('Error incrementing count:', error);
+    }
+
+    try {
+      const firstLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
       await setDoc(doc(collection(db, "users"), regno), {
         name: userName.substring(0, userName.length - 10),
         batch: batch,
@@ -125,11 +151,10 @@ const Signup = () => {
         school: school,
         branch: brach,
         sem: document.getElementById('sem').value,
-        logins:1,
-        logintime: [firstLoginTime],  
+        logins: 1,
+        logintime: [firstLoginTime],
       });
-      console.log("Document written with ID: ", regno);
-      navigate('/home', { state: { userName:userName.substring(0,userName.length-10)} });
+      navigate('/home', { state: { userName: userName.substring(0, userName.length - 10) } });
     } catch (e) {
       console.error("Error adding document: ", e);
     }

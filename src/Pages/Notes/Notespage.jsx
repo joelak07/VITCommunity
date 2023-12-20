@@ -62,7 +62,6 @@ const Notespage = () => {
     try {
       setLoading(true);
       const storage = getStorage();
-      console.log('File Object:', file);
       const uniqueKey = new Date().toISOString();
       const storageRef = ref(storage, `files/${uniqueKey}`);
 
@@ -82,8 +81,6 @@ const Notespage = () => {
         timestamp: new Date().toLocaleString(),
         ispq: false,
       });
-
-      console.log('Document written with ID: ', docRef.id);
       alert("Notes Added!");
       window.location.reload();
     } catch (error) {

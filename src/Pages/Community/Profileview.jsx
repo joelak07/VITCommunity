@@ -38,7 +38,6 @@ const Profileview = () => {
           (a, b) => new Date(b.time) - new Date(a.time)
         );
         setPosts(sortedPosts);
-        console.log("Posts:", sortedPosts);
       } catch (error) {
         console.error("Error fetching and filtering posts:", error);
       }
@@ -50,7 +49,6 @@ const Profileview = () => {
   useEffect(() => {
     if (location.state && location.state.regno) {
       setRegno(location.state.regno);
-      console.log("Regno:", location.state.regno);
     } else {
       console.error("User information not found in location state");
     }
@@ -74,12 +72,10 @@ const Profileview = () => {
     fetchFormData();
   }, [regno, formData.name]);
 
-  const checkregno=localStorage.getItem('checkregno')
-  console.log(checkregno)
+  const checkregno=localStorage.getItem('checkregno');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Search Term:', searchTerm);
     const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {

@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { db } from "../../firebase";
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import "./feedback.css";
 import myImage from "../../Assets/IMG_7739-fotor-20231218232258.png";
@@ -15,7 +15,6 @@ const Feedback = () => {
   const auth = getAuth();
 
   const check=localStorage.getItem('userName');
-  console.log(check)
   if(check===null){
     navigate('/login');
   }
@@ -35,28 +34,22 @@ const Feedback = () => {
     }
   };
 
-  useEffect(() => {
-    // Initialize Firebase (make sure you have already initialized it in your app)
-    // For example, import firebaseConfig from './firebaseConfig';
-    // firebase.initializeApp(firebaseConfig);
+  const handlejithu = () => {
+    navigate('/profileview', { state: { regno: "21BCE1451" } });
+  };
 
-    // Reference to the "users" collection
+  const handlejeevan = () => {
+    navigate('/profileview', { state: { regno: "21BCE5436" } });
+  };
 
+  const handlejoel = () => {
+    navigate('/profileview', { state: { regno: "21BCE1350" } });
+  };
 
-    // Function to count documents and log the result
-    const countDocuments = async () => {
-      try {
-        const snapshot = await getDocs(collection(db, 'users'));
-        const count = snapshot.size;
-        console.log('Number of documents in "users" collection:', count);
-      } catch (error) {
-        console.error('Error counting documents:', error);
-      }
-    };
-
-    // Call the function to count documents when the component mounts
-    countDocuments();
-  }, []);
+  const handlefahe = () => {
+    navigate('/profileview', { state: { regno: "21BCE5518" } });
+  };
+  
 
   const handleTextareaChange = (event) => {
     setFeedbackContent(event.target.value);
@@ -66,7 +59,7 @@ const Feedback = () => {
     <div className="feedback">
       <div className="aboutus">
         <h2 className="titdev">Meet the Developers</h2>
-        <div className="card1">
+        <div className="card1" onClick={handlejoel}>
           <img src={myImage} alt="" />
           <div className="card1txt">
             <h2>Lead Developer</h2>
@@ -74,7 +67,7 @@ const Feedback = () => {
             <h3>21BCE1350</h3>
           </div>
         </div>
-        <div className="card1">
+        <div className="card1" onClick={handlefahe}>
           <img src={fahe} alt="" />
           <div className="card1txt">
             <h3>Faheema Kattakath Sanil</h3>
@@ -83,14 +76,14 @@ const Feedback = () => {
         </div>
         <h2 className="titdev">Advisers</h2>
         <div className="boxdev">
-        <div className="card2">
+        <div className="card2" onClick={handlejithu}>
           <img src={jithu} alt="" />
           <div className="card2txt">
             <h3>Jithu Joji</h3>
             <h3>21BCE1451</h3>
           </div>
         </div>
-        <div className="card2">
+        <div className="card2" onClick={handlejeevan}>
           <img src={jeevan} alt="" />
           <div className="card2txt">
             <h3>Jeevan Alexen Kavalam</h3>

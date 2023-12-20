@@ -25,7 +25,6 @@ const Navbar = () => {
     localStorage.removeItem('userName');
     signOut(auth)
       .then(() => {
-        console.log('User signed out');
         navigate('/');
       })
       .catch((error) => {

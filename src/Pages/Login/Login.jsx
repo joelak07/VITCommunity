@@ -33,7 +33,6 @@ const Login = () => {
                     // Store userName in localStorage
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
-                    console.log('Logged in!');
 
                     updateDoc(docRef, {
                         logins: increment(1),
@@ -50,7 +49,6 @@ const Login = () => {
                 } else {
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
-                    console.log('User does not exist in database');
                     navigate('/signup', {
                         state: {
                             userToken: result.user.accessToken,

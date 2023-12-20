@@ -25,10 +25,9 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Search Term:', searchTerm);
     const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
+    if (docSnap.exists() && searchTerm.toUpperCase() !== "count") {
       if (searchTerm.toUpperCase() === regno) {
         alert('You are already viewing your profile!');
         return;
@@ -64,7 +63,6 @@ const Profile = () => {
           (a, b) => new Date(b.time) - new Date(a.time)
         );
         setPosts(sortedPosts);
-        console.log("Posts:", sortedPosts);
       } catch (error) {
         console.error("Error fetching and filtering posts:", error);
       }
@@ -81,7 +79,6 @@ const Profile = () => {
         const profileData = ProfileDocSnap.data();
         setFormData({ ...profileData, docID: ProfileDocSnap.id });
         setSem(profileData.sem); // Set the initial value for 'sem'
-        console.log("Profile:", profileData);
       } catch (err) {
         console.error(err);
       }
@@ -93,7 +90,6 @@ const Profile = () => {
     event.preventDefault();
     const newSem = event.target.value;
     setSem(newSem);
-    console.log("New sem:", newSem);
     try {
       const userDocRef = doc(collection(db, "users"), regno);
       await setDoc(userDocRef, {
