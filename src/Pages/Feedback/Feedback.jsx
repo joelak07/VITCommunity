@@ -74,7 +74,7 @@ const Feedback = () => {
             <h3>21BCE5518</h3>
           </div>
         </div>
-        <h2 className="titdev">Advisers</h2>
+        <h2 className="titdev">Advisors</h2>
         <div className="boxdev">
         <div className="card2" onClick={handlejithu}>
           <img src={jithu} alt="" />
