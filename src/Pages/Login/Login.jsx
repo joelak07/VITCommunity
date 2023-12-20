@@ -24,15 +24,18 @@ const Login = () => {
             // if (result.user.email.split('@')[1] !== 'vitstudent.ac.in') {
             //     alert('Login with your VIT email ID!');
             // } else {
-                const regno = result.user.displayName.substring(result.user.displayName.length - 9);
+                // const regno = result.user.displayName.substring(result.user.displayName.length - 9);
+                const regno="21BCE0000";
                 const docRef = doc(db, "users", regno);
                 const docSnap = await getDoc(docRef);
                 const newLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
 
                 if (docSnap.exists()) {
                     // Store userName in localStorage
-                    localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
-                    localStorage.setItem('systemname', result.user.displayName);
+                    // localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
+                    // localStorage.setItem('systemname', result.user.displayName);
+                    localStorage.setItem('userName', "Johnson George 21BCE0000");
+                    localStorage.setItem('systemname', "Johnson George");
 
                     updateDoc(docRef, {
                         logins: increment(1),
