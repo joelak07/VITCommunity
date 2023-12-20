@@ -4,14 +4,21 @@ import Post from './Post';
 import Popup from './Popup';
 import { db } from '../../firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';  
+import { useNavigate } from 'react-router-dom';  
 
 const Community = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   //const user = localStorage.getItem('systemname');
+  const navigate = useNavigate();
   const [post, setPost] = useState('');
   const [posts, setPosts] = useState([]);
   const auth=getAuth();
+  const check=localStorage.getItem('userName');
+  if(check===null){
+    navigate('/login');
+  }
+
 
   useEffect(() => {
     const nav = document.getElementById('respNav');

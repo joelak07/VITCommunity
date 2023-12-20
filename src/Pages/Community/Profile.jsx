@@ -16,6 +16,11 @@ const Profile = () => {
   const regno = fullName.substring(fullName.length - 9);
   localStorage.setItem('checkregno', regno)
 
+  const check=localStorage.getItem('userName');
+  if(check===null){
+    navigate('/login');
+  }
+  
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = async (e) => {

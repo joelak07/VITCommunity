@@ -14,6 +14,12 @@ const Profileview = () => {
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const check=localStorage.getItem('userName');
+  if(check===null){
+    navigate('/login');
+  }
+  
   useEffect(() => {
     const nav = document.getElementById("respNav");
     if (nav.classList.contains("responsive")) {
