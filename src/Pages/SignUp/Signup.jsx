@@ -74,21 +74,6 @@ const Signup = () => {
   }, [campus]);
 
   useEffect(() => {
-    const countDocuments = async () => {
-      try {
-        const snapshot = await getDocs(collection(db, 'users'), "count");
-        const count = snapshot.size;
-        console.log('Number of documents in "users" collection:', count);
-      } catch (error) {
-        console.error('Error counting documents:', error);
-      }
-    };
-
-    // Call the function to count documents when the component mounts
-    countDocuments();
-  }, []);
-
-  useEffect(() => {
     const fetchBranches = async () => {
       if (school) {
         try {
@@ -136,7 +121,6 @@ const Signup = () => {
       const countDocSnap = await getDoc(countDocRef);
       const currentCount = countDocSnap.data().users;
       await updateDoc(countDocRef, { users: currentCount + 1 });
-      console.log('Incremented count in "users" collection:', currentCount + 1);
 
     } catch (error) {
       console.error('Error incrementing count:', error);
