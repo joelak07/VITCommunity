@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { db } from "../../firebase";
-import { collection, doc, getDoc, setDoc, getDocs} from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, getDocs } from "firebase/firestore";
 import Post from "./Post";
 import { useNavigate } from "react-router-dom";
 
@@ -16,11 +16,11 @@ const Profile = () => {
   const regno = fullName.substring(fullName.length - 9);
   localStorage.setItem('checkregno', regno)
 
-  const check=localStorage.getItem('userName');
-  if(check===null){
+  const check = localStorage.getItem('userName');
+  if (check === null) {
     navigate('/login');
   }
-  
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = async (e) => {
@@ -167,6 +167,15 @@ const Profile = () => {
               id="batch"
               name="batch"
               value={formData.batch}
+              readOnly
+            />
+
+            <label htmlFor="batch">Contribution Score:</label>
+            <input
+              type="text"
+              id="batch"
+              name="batch"
+              value={formData.points}
               readOnly
             />
 

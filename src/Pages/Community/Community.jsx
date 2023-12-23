@@ -3,7 +3,7 @@ import './community.css';
 import Post from './Post';
 import Popup from './Popup';
 import { db } from '../../firebase';
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';  
 import { useNavigate } from 'react-router-dom';  
 
@@ -52,6 +52,11 @@ const Community = () => {
 
   const handlepost = async (event) => {
     event.preventDefault();
+
+    const userRef = doc(collection(db, 'users'), auth.currentUser.displayName.slice(-9));
+    const userDoc = await getDoc(userRef);
+    const currentPoints = userDoc.data().points || 0;
+
     if(post===''){
       alert('Post Should not be blank');
       return;
@@ -65,6 +70,10 @@ const Community = () => {
         dislikes: 0,
         fires:0,
       });
+
+      const updPoints = currentPoints + 25;
+      await updateDoc(userRef, {points: updPoints});
+      
       alert('Post added successfully');
       closePopup();
       window.location.reload();
