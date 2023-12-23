@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import './leader.css'
+import React, { useState, useEffect } from 'react';
+import './leader.css';
 import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore';
 import { db } from '../../firebase';
-import Point from './Point'
+import Point from './Point';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 const Leader = () => {
-
   const [topUsers, setTopUsers] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchTopUsers = async () => {
@@ -28,9 +30,21 @@ const Leader = () => {
     fetchTopUsers();
   }, []);
 
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className='leaderboard'>
-      <h1>Leaderboard🏆</h1>
+      <div className="ledtop">
+        <h1>Leaderboard🏆</h1>
+        <button onClick={openModal}><FontAwesomeIcon icon={faInfo} /></button>
+      </div>
+
       <div className="leaders">
         <div className="headerlead">
           <div className="pbox">
@@ -47,14 +61,26 @@ const Leader = () => {
           </div>
         </div>
         <div className="leaderslist">
-        {topUsers.map((user, index) => (
+          {topUsers.map((user, index) => (
             <Point key={user.id} rank={index + 1} regno={user.id} name={user.name} score={user.points} />
           ))}
         </div>
-        
       </div>
+
+      {isModalOpen && (
+        <div className="overlay">
+          <div className="modal">
+            <span className="close" onClick={closeModal} style={{fontSize:"4rem"}}>&times;</span>
+            <h3>Previous QP Upload: 100 Points</h3>
+            <h3>Notes Upload: 50 Points</h3>
+            <h3>Community Post: 25 Points</h3>
+            <h3>Log in: 3 Points</h3>
+            <h3>5 Day Streak: 20 Points</h3>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Leader
+export default Leader;
