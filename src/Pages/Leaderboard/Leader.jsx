@@ -71,8 +71,8 @@ const Leader = () => {
         <div className="overlay">
           <div className="modal">
             <span className="close" onClick={closeModal} style={{fontSize:"4rem"}}>&times;</span>
-            <h3>Previous QP Upload: 100 Points</h3>
-            <h3>Notes Upload: 50 Points</h3>
+            <h3>Previous QP Upload: 200 Points</h3>
+            <h3>Notes Upload: 100 Points</h3>
             <h3>Community Post: 25 Points</h3>
             <h3>Log in: 3 Points</h3>
             <h3>5 Day Streak: 20 Points</h3>

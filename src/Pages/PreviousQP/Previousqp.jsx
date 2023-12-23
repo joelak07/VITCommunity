@@ -117,7 +117,7 @@ const Previousqp = () => {
       const userDoc = await getDoc(userRef);
       if (userDoc.exists()) {
         const currentPoints = userDoc.data().points || 0;
-        const updatedPoints = currentPoints + 100;
+        const updatedPoints = currentPoints + 200;
         await updateDoc(userRef, { points: updatedPoints });  
       }
 

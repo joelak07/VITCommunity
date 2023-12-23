@@ -87,7 +87,7 @@ const Notespage = () => {
       const userDoc = await getDoc(userRef);
       if (userDoc.exists()) {
         const currentPoints = userDoc.data().points || 0;
-        const updatedPoints = currentPoints + 50;
+        const updatedPoints = currentPoints + 100;
         await updateDoc(userRef, { points: updatedPoints });
       }
 
