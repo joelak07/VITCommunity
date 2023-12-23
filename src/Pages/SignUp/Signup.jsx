@@ -138,7 +138,7 @@ const Signup = () => {
         sem: document.getElementById('sem').value,
         logins: 1,
         logintime: [firstLoginTime],
-        points: 0,
+        points: 10,
         daily:currentDate,  
         streak:1, 
       });
