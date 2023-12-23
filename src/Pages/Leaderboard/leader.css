@@ -1,0 +1,74 @@
+.leaderboard{
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    @media screen and (max-width: 758px){
+        padding: 5px 10px;
+    
+        
+    }
+}
+
+.leaderboard h1{
+    font-size: 3rem;
+    @media screen and (max-width: 758px){
+        font-size: 1.5rem;
+        text-align: center;
+        
+    }
+}
+
+.leaders{
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    @media screen and (max-width: 758px){
+        font-size: 0.6rem;
+        height: 80%;
+        
+    }
+}
+
+.headerlead{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    margin-right: 17px;
+    @media screen and (max-width: 758px){
+        font-size: 0.6rem;
+        padding: 5px 10px;
+        margin-right: 6px;
+        
+    }
+}
+
+.leaderslist{
+    padding: 0px 20px;
+    overflow-y: auto;
+    height: 85%;
+}
+
+
+
+
+
+
+
+
+
+
+.point{
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    
+}
+
+.pbox{
+    text-align: center;
+    width: calc(100% / 4);
+}

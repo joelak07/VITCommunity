@@ -4,7 +4,7 @@ import './login.css';
 import GoogleButton from 'react-google-button';
 import { auth, provider, db } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
-import { doc, getDoc, updateDoc, increment, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, updateDoc, increment, arrayUnion, collection } from "firebase/firestore";
 import { useEffect } from 'react';
 
 const Login = () => {
@@ -25,21 +25,60 @@ const Login = () => {
                 alert('Login with your VIT email ID!');
             } else {
                 const regno = result.user.displayName.substring(result.user.displayName.length - 9);
-                
+
                 const docRef = doc(db, "users", regno);
                 const docSnap = await getDoc(docRef);
                 const newLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
 
                 if (docSnap.exists()) {
-                    // Store userName in localStorage
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
-                    
+
 
                     updateDoc(docRef, {
                         logins: increment(1),
                         logintime: arrayUnion(newLoginTime),
                     });
+
+                    const userRef = doc(collection(db, 'users'), auth.currentUser.displayName.slice(-9));
+                    const userDoc = await getDoc(userRef);
+
+                    const userDaily = userDoc.data().daily;
+                    const currentDate = new Date();
+                    const yesterday = new Date(currentDate);
+                    yesterday.setDate(currentDate.getDate() - 1);
+
+                    const yesterdayFormatted = yesterday.toLocaleDateString('en-GB');
+
+                    
+                    const currentPoints = userDoc.data().points || 0;
+
+                    if (userDaily === yesterdayFormatted) { 
+                        const currentStreak = userDoc.data().streak || 0;
+                        const updatedStreak = currentStreak + 1;
+                        const test=updatedStreak%5;
+                        if(test===0){
+                            const updPoints = currentPoints + 20;
+                            await updateDoc(userRef, { streak:updatedStreak, points: updPoints, daily: new Date().toLocaleDateString('en-GB') });
+                        }
+                        else{
+                            await updateDoc(userRef, { streak: updatedStreak});
+                            if (userDoc.exists() && userDoc.data().daily !== new Date().toLocaleDateString('en-GB')) {
+                                const currentPoints = userDoc.data().points || 0;
+                                const updatedPoints = currentPoints + 3;
+                                await updateDoc(userRef, { points: updatedPoints, daily: new Date().toLocaleDateString('en-GB') });
+                            }
+                        }
+
+                    }
+                    else{
+                        await updateDoc(userRef, { streak: 1});
+                        if (userDoc.exists() && userDoc.data().daily !== new Date().toLocaleDateString('en-GB')) {
+                            const currentPoints = userDoc.data().points || 0;
+                            const updatedPoints = currentPoints + 3;
+                            await updateDoc(userRef, { points: updatedPoints, daily: new Date().toLocaleDateString('en-GB') });
+                        }
+                    }
 
 
                     navigate('/home', {

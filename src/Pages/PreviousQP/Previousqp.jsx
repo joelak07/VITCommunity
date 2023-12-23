@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, getDoc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./previousqp.css";
 import Prevqpclosed from "./Prevqpclosed";
@@ -112,6 +112,14 @@ const Previousqp = () => {
         ispq: true,
         student: auth.currentUser.displayName,
       });
+
+      const userRef = doc(collection(db, 'users'), auth.currentUser.displayName.slice(-9));
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        const currentPoints = userDoc.data().points || 0;
+        const updatedPoints = currentPoints + 100;
+        await updateDoc(userRef, { points: updatedPoints });  
+      }
 
       alert("File uploaded successfully!");
       window.location.reload();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { db } from "../../firebase";
-import { collection, doc, getDoc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, getDocs} from "firebase/firestore";
 import Post from "./Post";
 import { useNavigate } from "react-router-dom";
 
@@ -38,6 +38,8 @@ const Profile = () => {
       alert('User does not exist!');
     }
   };
+
+
 
 
   useEffect(() => {

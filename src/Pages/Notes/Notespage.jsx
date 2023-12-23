@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./notespage.css";
 import { db } from '../../firebase';
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, getDoc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useLocation } from "react-router-dom";
 import Note from "./Note";
@@ -21,7 +21,8 @@ const Notespage = () => {
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
   const auth=getAuth();
-
+  console.log(auth.currentUser.displayName.slice(-9))
+  
   useEffect(()=>{
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
@@ -81,6 +82,15 @@ const Notespage = () => {
         timestamp: new Date().toLocaleString(),
         ispq: false,
       });
+
+      const userRef = doc(collection(db, 'users'), auth.currentUser.displayName.slice(-9));
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        const currentPoints = userDoc.data().points || 0;
+        const updatedPoints = currentPoints + 50;
+        await updateDoc(userRef, { points: updatedPoints });
+      }
+
       alert("Notes Added!");
       window.location.reload();
     } catch (error) {

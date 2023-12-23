@@ -128,7 +128,7 @@ const Signup = () => {
 
     try {
       const firstLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
-      const currentDate = new Date().toLocaleDateString();
+      const currentDate = new Date().toLocaleDateString('en-GB');
       await setDoc(doc(collection(db, "users"), regno), {
         name: userName.substring(0, userName.length - 10),
         batch: batch,
@@ -140,6 +140,7 @@ const Signup = () => {
         logintime: [firstLoginTime],
         points: 0,
         daily:currentDate,  
+        streak:1, 
       });
       navigate('/home', { state: { userName: userName.substring(0, userName.length - 10) } });
     } catch (e) {

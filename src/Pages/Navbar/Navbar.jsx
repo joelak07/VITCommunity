@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <div className='Navbar' id="respNav">
       <Link to="/home" className='momi'>
-        <div className="leftnav"> 
+        <div className="leftnav">
           <h2>VIT</h2><span>Community</span>
         </div>
       </Link>
@@ -85,11 +85,12 @@ const Navbar = () => {
             <button className='paperbut' onClick={() => handleNavigate('/previousqp')}><FontAwesomeIcon icon={faHourglass2} className='navIcon' />Previous Papers</button>
             <button className='notesbut' onClick={() => handleNavigate('/notes')}><FontAwesomeIcon icon={faNoteSticky} className='navIcon' />Notes</button>
             <button className='paperbut' onClick={() => handleNavigate('/feedback')}><FontAwesomeIcon icon={faPen} className='navIcon' />Feedback</button>
-            <button className='notesbut' onClick={() => handleNavigate('/leaderboard')}><FontAwesomeIcon icon={faTrophy} className='navIcon' />Leaderboard</button>
+            
           </>
         )}
         {isRootPath && (
           <>
+            <button className='notesbut' onClick={() => handleNavigate('/leaderboard')}><FontAwesomeIcon icon={faTrophy} className='navIcon' />Leaderboard</button>
             <button className='paperbut' onClick={() => handleNavigate('/profile')}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
             <button className='logoutbut' onClick={handleLogout}>
               <FontAwesomeIcon icon={faSignOut} className='navIcon' />Logout
