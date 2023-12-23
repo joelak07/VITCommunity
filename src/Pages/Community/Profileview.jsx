@@ -15,11 +15,11 @@ const Profileview = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const check=localStorage.getItem('userName');
-  if(check===null){
+  const check = localStorage.getItem('userName');
+  if (check === null) {
     navigate('/login');
   }
-  
+
   useEffect(() => {
     const nav = document.getElementById("respNav");
     if (nav.classList.contains("responsive")) {
@@ -72,20 +72,20 @@ const Profileview = () => {
     fetchFormData();
   }, [regno, formData.name]);
 
-  const checkregno=localStorage.getItem('checkregno');
+  const checkregno = localStorage.getItem('checkregno');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const docRef = doc(db, "users", searchTerm.toUpperCase());
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        if (searchTerm.toUpperCase() === checkregno) {
-            navigate('/profile');
-        }
-        else{
-            navigate('/profileview', { state: { regno: searchTerm.toUpperCase() } });
-        }
-      
+      if (searchTerm.toUpperCase() === checkregno) {
+        navigate('/profile');
+      }
+      else {
+        navigate('/profileview', { state: { regno: searchTerm.toUpperCase() } });
+      }
+
     }
     else {
       alert('User does not exist!');
@@ -148,6 +148,15 @@ const Profileview = () => {
               id="batch"
               name="batch"
               value={formData.batch}
+              readOnly
+            />
+
+            <label htmlFor="batch">Contribution Score:</label>
+            <input
+              type="text"
+              id="batch"
+              name="batch"
+              value={formData.points}
               readOnly
             />
 

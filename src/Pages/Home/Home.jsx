@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../../firebase';
 import './home.css';
+import { getDoc, doc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const Home = () => {
   const navigate = useNavigate();
+  const auth = getAuth();
+  const [streak,SetStreak]=useState(0);
   const name = localStorage.getItem('userName');
   useEffect(() => {
     const nav = document.getElementById('respNav');
@@ -32,19 +37,30 @@ const Home = () => {
     navigate('/feedback');
   };
 
+  useEffect(() => {
+    const fetchUserStreak = async () => {
+      try {
+        const userDoc = await getDoc(doc(db, 'users', auth.currentUser.displayName.slice(-9)));
+        if (userDoc.exists()) {
+          SetStreak(userDoc.data().streak);
+        } else {
+          console.error('User document does not exist.');
+        }
+      } catch (error) {
+        console.error('Error fetching user streak:', error);
+      }
+    };
+
+    fetchUserStreak();
+  }, [auth.currentUser.displayName]);
+
   return (
     <div className="home-container">
-      {/* <h2 className="heading">Welcome to the Home Page!</h2>
-      <h2 className="user-greeting">Hello {name}</h2>
-      <div className="button-container">
-        <button className="button" onClick={goToPreviousQP}>Go to Previous QP</button>
-        <button className="button" onClick={goToCommunity}>Go to Community</button>
-        <button className="button" onClick={goToNotes}>Resources</button>
-      </div> */}
       <div className="home-content">
         <div className="tophome">
           <h1 className="heading">Home Page</h1>
           <h2 className="user-greeting">Hello {name}</h2>
+          <h3>Streak: {streak}🔥</h3>
         </div>
         <div className="homecontent">
           <div className="homecontent1">
