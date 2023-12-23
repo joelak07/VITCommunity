@@ -21,7 +21,7 @@ const Notespage = () => {
   const navigate = useNavigate();
   const name = localStorage.getItem('userName');
   const auth=getAuth();
-  console.log(auth.currentUser.displayName.slice(-9))
+
   
   useEffect(()=>{
     const nav = document.getElementById('respNav');

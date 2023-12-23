@@ -20,7 +20,6 @@ const Leader = () => {
         });
 
         setTopUsers(users);
-        console.log('Top 10 Users:', users);
       } catch (error) {
         console.error('Error fetching top users:', error);
       }
