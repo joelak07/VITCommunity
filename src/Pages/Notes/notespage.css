@@ -2,7 +2,7 @@
     height: 100vh;
 }
 
-.uploadnotescont {
+.uploadnotescont { 
     margin: 20px;
     background-color: aqua;
     width: max-width;
@@ -12,6 +12,10 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
+    @media screen and (max-width: 1110px) {
+        margin: 10px;
+      
+    }
 }
 
 .uploadnotescont h2{
@@ -100,6 +104,10 @@
     display: flex;
     flex-wrap: wrap;
     min-height: 500px;
+    @media screen and (max-width: 1110px) {
+        margin: 10px;
+      
+    }
   }
 
   .waitstyle{

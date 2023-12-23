@@ -1,29 +1,36 @@
-.paper{
+.paper {
     width: calc(95.7%/3);
     height: auto;
     background-color: rgb(246, 219, 185);
     padding: 15px;
     padding-bottom: 20px;
     font-family: 'Poppins', 'sans-serif';
-    margin: 10px; 
-    box-sizing: border-box;     
+    margin: 10px;
+    box-sizing: border-box;
     border-radius: 10px;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+        margin-bottom: 10px;
+    }
 }
 
-.paper h3{
+.paper h3 {
     color: #333;
     margin-bottom: 8px;
     font-size: 1.5rem;
     margin-top: 5px;
 }
 
-.paper p{
+.paper p {
     color: #666;
     margin: 0;
     font-size: 1.2rem;
 }
 
-.paper a{
+.paper a {
     margin-top: 10px;
     display: inline-block;
     padding: 8px 16px;
@@ -34,6 +41,6 @@
     transition: background-color 0.3s;
 }
 
-.paper a:hover{
+.paper a:hover {
     background-color: darkgreen;
 }
