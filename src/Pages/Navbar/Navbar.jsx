@@ -4,15 +4,15 @@ import './navbar.css';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMinus, faUser, faSignOut, faEarthAmericas, faNoteSticky, faPen, faHourglass2 } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMinus, faUser, faSignOut, faEarthAmericas, faNoteSticky, faPen, faHourglass2, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community' || location.pathname === '/feedback' || location.pathname === '/profile' || location.pathname === '/profileview';
+  const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community' || location.pathname === '/feedback' || location.pathname === '/profile' || location.pathname === '/profileview' || location.pathname === '/leaderboard';
   const name = localStorage.getItem('userName') || '';
-  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile', '/profileview'].includes(location.pathname);
+  const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile', '/profileview', '/leaderboard'].includes(location.pathname);
   const shouldDisplayButtons = isRestrictedPath;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -81,15 +81,16 @@ const Navbar = () => {
         {shouldDisplayButtons && (
           <>
             {/* <button className='backbut' onClick={() => handleNavigate('/home')}><FontAwesomeIcon icon={faHome} className='navIcon' />Home</button> */}
-            <button className='paperbut' onClick={() => handleNavigate('/community', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faEarthAmericas} className='navIcon' />Community</button>
-            <button className='paperbut' onClick={() => handleNavigate('/previousqp', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faHourglass2} className='navIcon' />Previous Papers</button>
-            <button className='notesbut' onClick={() => handleNavigate('/notes', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faNoteSticky} className='navIcon' />Notes</button>
-            <button className='paperbut' onClick={() => handleNavigate('/feedback', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faPen} className='navIcon' />Feedback</button>
+            <button className='paperbut' onClick={() => handleNavigate('/community')}><FontAwesomeIcon icon={faEarthAmericas} className='navIcon' />Community</button>
+            <button className='paperbut' onClick={() => handleNavigate('/previousqp')}><FontAwesomeIcon icon={faHourglass2} className='navIcon' />Previous Papers</button>
+            <button className='notesbut' onClick={() => handleNavigate('/notes')}><FontAwesomeIcon icon={faNoteSticky} className='navIcon' />Notes</button>
+            <button className='paperbut' onClick={() => handleNavigate('/feedback')}><FontAwesomeIcon icon={faPen} className='navIcon' />Feedback</button>
+            <button className='notesbut' onClick={() => handleNavigate('/leaderboard')}><FontAwesomeIcon icon={faTrophy} className='navIcon' />Leaderboard</button>
           </>
         )}
         {isRootPath && (
           <>
-            <button className='paperbut' onClick={() => handleNavigate('/profile', { name: 'YourStateValue' })}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
+            <button className='paperbut' onClick={() => handleNavigate('/profile')}><FontAwesomeIcon icon={faUser} className='navIcon' />Profile</button>
             <button className='logoutbut' onClick={handleLogout}>
               <FontAwesomeIcon icon={faSignOut} className='navIcon' />Logout
             </button>

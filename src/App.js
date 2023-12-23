@@ -12,6 +12,7 @@ import Pqpage from './Pages/PreviousQP/Pqpage';
 import Feedback from './Pages/Feedback/Feedback';
 import Profile from './Pages/Community/Profile';
 import Profileview from './Pages/Community/Profileview';
+import Leader from './Pages/Leaderboard/Leader';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profileview" element={<Profileview/>} />
+          <Route path="/leaderboard" element={<Leader />} />
           <Route path="*" element={<Login />} />
           
         </Routes>
