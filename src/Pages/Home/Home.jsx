@@ -10,14 +10,16 @@ const Home = () => {
   const auth = getAuth();
   const [streak,SetStreak]=useState(0);
   const name = localStorage.getItem('userName');
+  if (name === null) {
+    navigate('/');
+  }
+  
   useEffect(() => {
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
     }
-    if (name === null) {
-      navigate('/');
-    }
+    
   }, [name, navigate]);
 
 

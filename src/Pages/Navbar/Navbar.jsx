@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isRootPath = location.pathname === '/home' || location.pathname === '/previousqp' || location.pathname === '/pqpage' || location.pathname === '/notes' || location.pathname === '/notespage' || location.pathname === '/community' || location.pathname === '/feedback' || location.pathname === '/profile' || location.pathname === '/profileview' || location.pathname === '/leaderboard';
   const name = localStorage.getItem('userName') || '';
   const isRestrictedPath = ['/previousqp', '/pqpage', '/notes', '/notespage', '/community', '/feedback', '/profile', '/profileview', '/leaderboard'].includes(location.pathname);
@@ -73,11 +74,20 @@ const Navbar = () => {
 
   return (
     <div className='Navbar' id="respNav">
-      <Link to="/home" className='momi'>
-        <div className="leftnav">
-          <h2>VIT</h2><span>Community</span>
-        </div>
-      </Link>
+      {!isHomePage && (
+        <Link to="/home" className='momi'>
+          <div className="leftnav">
+            <h2>VIT</h2><span>Community</span>
+          </div>
+        </Link>
+      )}
+      {isHomePage && (
+        // <Link to="/home" className='momi'>
+          <div className="leftnav">
+            <h2>VIT</h2><span>Community</span>
+          </div>
+        // </Link>
+      )}
       <div className="rightnav">
         {shouldDisplayButtons && (
           <>
