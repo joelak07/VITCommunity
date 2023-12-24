@@ -94,6 +94,7 @@ const Home = () => {
         const userDoc = await getDoc(doc(db, 'users', regno));
         if (userDoc.exists()) {
           SetStreak(userDoc.data().streak);
+          setUsers(userDoc.data().points);
         } else {
           console.error('User document does not exist.');
         }
@@ -125,22 +126,6 @@ const Home = () => {
     fetchTopUsers();
   }, []);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userDoc = await getDoc(doc(db, 'users', 'count'));
-        if (userDoc.exists()) {
-          setUsers(userDoc.data().users);
-        } else {
-          console.error('User document does not exist.');
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
 
 
   return (
@@ -158,7 +143,7 @@ const Home = () => {
                 <h3>Streak: {streak}🔥</h3>
               </div>
               <div className="usersbox">
-                <h3>Total Users: {users}</h3>
+                <h3>Your Score: {users}</h3>
               </div>
               <div className="quotebox">
                 <p>{quote}</p>
