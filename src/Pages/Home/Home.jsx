@@ -20,21 +20,6 @@ const Home = () => {
 
   const [quote, setQuote] = useState('');
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1100) {
-        alert("Home Page not available for mobile at the moment. Kindly use navbar to navigate to other pages. Sorry for the inconvenience.")
-        navigate('/community');
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [navigate]);
-
 
   useEffect(() => {
     const fetchRandomQuote = async () => {
@@ -179,22 +164,29 @@ const Home = () => {
                 <p>{quote}</p>
               </div>
             </div>
-            <div className="mainhomebot">
-              <div className="comhome">
-                <b>Have a look at what your friends have to say and feel free <br />to voice out your opinions</b>
-                <button className="button" onClick={goToCommunity}>Go to Community</button>
-              </div>
-              <div className="comhome">
-                <b>View and upload previous CAT,FAT Theory and lab papers here</b>
-                <button className="button" onClick={goToPreviousQP}>Go to Previous QP</button>
-              </div>
-              <div className="comhome">
-                <b>View and Upload study material and grow together</b>
-                <button className="button" onClick={goToNotes}>Resources</button>
-              </div>
-              <div className="comhome">
-                <b>Share your valuable Feedback here</b>
-                <button className="button" onClick={goToFeedback}>Feedback</button>
+            <div className="albox">
+
+
+              <div className="mainhomebot">
+                <div className="comhome">
+                  <b>Have a look at what your friends have to say and feel free <br />to voice out your opinions</b>
+                  <button className="button" onClick={goToCommunity}>Go to Community</button>
+                </div>
+                <div className="comhome">
+                  <b>View and upload previous CAT,FAT Theory and lab papers here</b>
+                  <button className="button" onClick={goToPreviousQP}>Go to Previous QP</button>
+                </div>
+                <div className="comhome">
+                  <b>View and Upload study material and grow together</b>
+                  <button className="button" onClick={goToNotes}>Resources</button>
+                </div>
+                <div className="comhome">
+                  <b>Share your valuable Feedback here</b>
+                  <button className="button" onClick={goToFeedback}>Feedback</button>
+                </div>
+                <div className="comled">
+                  <button className="button" onClick={navlead}>Leaderboard</button>
+                </div>
               </div>
             </div>
           </div>
@@ -209,7 +201,7 @@ const Home = () => {
               </div>
             </div>
             <div className="admin">
-              <h3>Messages from Admin</h3>
+              <h3 className='admes'>Messages from Admin</h3>
               <div className="messlistad">
                 {admin.map((messageData) => (
                   <Admin key={messageData.id} message={messageData.message} time={messageData.time} />
