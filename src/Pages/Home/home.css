@@ -32,9 +32,9 @@
 
 
 .button {
-  padding: 12px 24px;
-  width: 200px;
-  font-size: 1rem;
+  padding: 15px 30px;
+  width: 240px;
+  font-size: 1.2rem;
   cursor: pointer;
   background-color: brown;
   color: white;
@@ -43,7 +43,7 @@
   transition: background-color 0.3s ease;
 
   @media screen and (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 20px 40px;
     width: 250px;
     
@@ -229,7 +229,7 @@
   padding: 10px;
   border-radius: 10px;
   align-items: center;
-  height: 77px;
+  height: 90px;
   @media screen and (max-width: 768px) {
     padding: 0;
     height: auto;
@@ -257,7 +257,7 @@
   width: 97%;
   padding: 20px;
   height: auto;
-  gap: calc(1rem + 1vw);
+  gap: calc(0.5rem + 0.35vw);
   display: flex;
   justify-content: space-around;
   flex-direction: column;
