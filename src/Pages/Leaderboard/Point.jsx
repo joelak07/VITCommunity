@@ -1,9 +1,12 @@
 import React from 'react';
 import './leader.css';
 
-const Point = ({ rank, regno, name, score }) => {
+const Point = ({ rank, regno, name, score, screen }) => {
   let backgroundColor;
-
+  let fontSize;
+  if(screen==='home'){
+    fontSize = '0.6rem';
+  }
   switch (rank) {
     case 1:
       backgroundColor = '#FFD700';
@@ -20,17 +23,17 @@ const Point = ({ rank, regno, name, score }) => {
   }
 
   return (
-    <div className='point' style={{ backgroundColor }}>
-      <div className="pbox">
+    <div className='point' style={{ backgroundColor}}>
+      <div className="pbox" style={{fontSize}}>
         <h3>{rank}</h3>
       </div>
-      <div className="pbox">
+      <div className="pbox" style={{fontSize}}>
         <h3>{regno}</h3>
       </div>
-      <div className="pbox">
+      <div className="pbox" style={{fontSize}}>
         <h3>{name}</h3>
       </div>
-      <div className="pbox">
+      <div className="pbox" style={{fontSize}}>
         <h3>{score}</h3>
       </div>
     </div>
