@@ -25,6 +25,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
     localStorage.removeItem('userName');
     localStorage.removeItem('systemname');
+    localStorage.removeItem('regno');
     signOut(auth)
       .then(() => {
         navigate('/');
@@ -82,11 +83,9 @@ const Navbar = () => {
         </Link>
       )}
       {isHomePage && (
-        // <Link to="/home" className='momi'>
           <div className="leftnav">
             <h2>VIT</h2><span>Community</span>
           </div>
-        // </Link>
       )}
       <div className="rightnav">
         {shouldDisplayButtons && (

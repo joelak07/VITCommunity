@@ -37,7 +37,7 @@ const Login = () => {
                     toast.success('Login successful!');
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
-
+                    localStorage.setItem('regno',result.user.displayName.slice(-9));
 
                     updateDoc(docRef, {
                         logins: increment(1),
@@ -97,6 +97,7 @@ const Login = () => {
                 } else {
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
+                    localStorage.setItem('regno',result.user.displayName.slice(-9));
                     toast.success('Login successful!');
                     navigate('/signup', {
                         state: {

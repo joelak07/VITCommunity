@@ -72,7 +72,7 @@ const Profileview = () => {
     fetchFormData();
   }, [regno, formData.name]);
 
-  const checkregno = localStorage.getItem('checkregno');
+  const checkregno = localStorage.getItem('regno');
 
   const handleSubmit = async (e) => {
     e.preventDefault();

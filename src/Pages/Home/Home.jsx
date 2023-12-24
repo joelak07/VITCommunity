@@ -3,21 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import './home.css';
 import { getDoc, doc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
 
 const Home = () => {
   const navigate = useNavigate();
-  const auth = getAuth();
   const [streak,SetStreak]=useState(0);
   const name = localStorage.getItem('userName');
-  if (name === null) {
-    navigate('/');
-  }
+  const regno = localStorage.getItem('regno');
   
   useEffect(() => {
     const nav = document.getElementById('respNav');
     if (nav.classList.contains('responsive')) {
       nav.classList.remove('responsive');
+    }
+    if (name === null) {
+      navigate('/');
     }
     
   }, [name, navigate]);
@@ -42,7 +41,7 @@ const Home = () => {
   useEffect(() => {
     const fetchUserStreak = async () => {
       try {
-        const userDoc = await getDoc(doc(db, 'users', auth.currentUser.displayName.slice(-9)));
+        const userDoc = await getDoc(doc(db, 'users', regno));
         if (userDoc.exists()) {
           SetStreak(userDoc.data().streak);
         } else {
@@ -54,7 +53,7 @@ const Home = () => {
     };
 
     fetchUserStreak();
-  }, [auth.currentUser.displayName]);
+  });
 
   return (
     <div className="home-container">

@@ -14,7 +14,7 @@ const Profile = () => {
 
   const fullName = localStorage.getItem('systemname');
   const regno = fullName.substring(fullName.length - 9);
-  localStorage.setItem('checkregno', regno)
+  
 
   const check = localStorage.getItem('userName');
   if (check === null) {
