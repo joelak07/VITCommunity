@@ -72,7 +72,10 @@ const Login = () => {
 
                     }
                     else{
-                        await updateDoc(userRef, { streak: 1});
+                        if(userDaily!==new Date().toLocaleDateString('en-GB')){
+                            await updateDoc(userRef, { streak: 1});
+                        }
+    
                         if (userDoc.exists() && userDoc.data().daily !== new Date().toLocaleDateString('en-GB')) {
                             const currentPoints = userDoc.data().points || 0;
                             const updatedPoints = currentPoints + 3;
