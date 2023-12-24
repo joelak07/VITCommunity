@@ -54,7 +54,7 @@ const Home = () => {
     fetchAdminMessages();
   }, []);
 
-  console.log(admin);
+
 
   useEffect(() => {
     const nav = document.getElementById('respNav');
