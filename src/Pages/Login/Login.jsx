@@ -6,6 +6,9 @@ import { auth, provider, db } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { doc, getDoc, updateDoc, increment, arrayUnion, collection } from "firebase/firestore";
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -31,6 +34,7 @@ const Login = () => {
                 const newLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
 
                 if (docSnap.exists()) {
+                    toast.success('Login successful!');
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
 
@@ -83,7 +87,7 @@ const Login = () => {
                         }
                     }
 
-
+                    
                     navigate('/home', {
                         state: {
                             userToken: result.user.accessToken,
@@ -93,6 +97,7 @@ const Login = () => {
                 } else {
                     localStorage.setItem('userName', result.user.displayName.substring(0, result.user.displayName.length - 10));
                     localStorage.setItem('systemname', result.user.displayName);
+                    toast.success('Login successful!');
                     navigate('/signup', {
                         state: {
                             userToken: result.user.accessToken,
@@ -105,6 +110,7 @@ const Login = () => {
 
 
         } catch (error) {
+            toast.error('Error logging in. Please try again.');
             console.error('Error logging in:', error);
         }
     };
