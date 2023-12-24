@@ -5,10 +5,16 @@ import { db } from '../../firebase';
 import Point from './Point';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Leader = () => {
   const [topUsers, setTopUsers] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
+  const name = localStorage.getItem('userName');
+  const navigate = useNavigate();
+  if(name===null){
+    navigate('/');
+  }
 
   useEffect(() => {
     const fetchTopUsers = async () => {

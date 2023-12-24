@@ -23,6 +23,7 @@ const Navbar = () => {
     }
     setIsMenuOpen(false);
     localStorage.removeItem('userName');
+    localStorage.removeItem('systemname');
     signOut(auth)
       .then(() => {
         navigate('/');
