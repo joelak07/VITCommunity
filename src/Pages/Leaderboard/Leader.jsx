@@ -21,7 +21,7 @@ const Leader = () => {
   useEffect(() => {
     const fetchTopUsers = async () => {
       try {
-        const q = query(collection(db, 'users'), orderBy('points', 'desc'), limit(10));
+        const q = query(collection(db, 'users'), orderBy('points', 'desc'), limit(20));
         const querySnapshot = await getDocs(q);
 
         const users = [];
