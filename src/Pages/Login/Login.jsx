@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
-
+    
     useEffect(() => {
         const nav = document.getElementById('respNav');
         if (nav.classList.contains('responsive')) {
@@ -31,7 +31,7 @@ const Login = () => {
 
                 const docRef = doc(db, "users", regno);
                 const docSnap = await getDoc(docRef);
-                const newLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+                const newLoginTime = new Date().toLocaleDateString('en-GB') + " " + new Date().toLocaleTimeString();
 
                 if (docSnap.exists()) {
                     toast.success('Login successful!');

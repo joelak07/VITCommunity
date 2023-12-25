@@ -16,6 +16,8 @@ const Leader = () => {
     navigate('/');
   }
 
+  
+
     
 
   useEffect(() => {
