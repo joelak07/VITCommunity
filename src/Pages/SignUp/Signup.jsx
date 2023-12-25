@@ -15,6 +15,8 @@ const Signup = () => {
   const [userName, setUserName] = useState('');
   const [batch, setBatch] = useState('');
   const [regno, setRegno] = useState('');
+  const [rec, setRec] = useState('');
+  let recc=false;
 
 
   const navigate = useNavigate();
@@ -115,8 +117,28 @@ const Signup = () => {
       return;
     }
 
+    if (rec !== '') {
+      try {
+        const recDocRef = doc(db, 'users', rec);
+        const recDocSnap = await getDoc(recDocRef);
+    
+        if (!recDocSnap.exists()) {
+          console.error('Invalid Referral');
+          alert('Invalid Referral');
+          return;
+        }
+        const currentPoints = recDocSnap.data().points;
+        const updpoints = currentPoints + 50;
+    
+        await updateDoc(recDocRef, { points: updpoints });
+        recc=true;
+      } catch (error) {
+        console.error('Error incrementing count:', error);
+        console.error('Error adding referral:', error.message);
+      }
+    } 
+
     try {
-      // Get the current count document
       const countDocRef = doc(db, 'users', 'count');
       const countDocSnap = await getDoc(countDocRef);
       const currentCount = countDocSnap.data().users;
@@ -129,23 +151,44 @@ const Signup = () => {
     try {
       const firstLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
       const currentDate = new Date().toLocaleDateString('en-GB');
-      await setDoc(doc(collection(db, "users"), regno), {
-        name: userName.substring(0, userName.length - 10),
-        batch: batch,
-        campus: campus,
-        school: school,
-        branch: brach,
-        sem: document.getElementById('sem').value,
-        logins: 1,
-        logintime: [firstLoginTime],
-        points: 0,
-        daily:currentDate,  
-        streak:1, 
-      });
+      if(recc){
+        await setDoc(doc(collection(db, "users"), regno), {
+          name: userName.substring(0, userName.length - 10),
+          batch: batch,
+          campus: campus,
+          school: school,
+          branch: brach,
+          sem: document.getElementById('sem').value,
+          logins: 1,
+          logintime: [firstLoginTime],
+          points: 20,
+          daily: currentDate,
+          streak: 1,
+          referral: rec,
+        });
+      }
+      else{
+        await setDoc(doc(collection(db, "users"), regno), {
+          name: userName.substring(0, userName.length - 10),
+          batch: batch,
+          campus: campus,
+          school: school,
+          branch: brach,
+          sem: document.getElementById('sem').value,
+          logins: 1,
+          logintime: [firstLoginTime],
+          points: 0,
+          daily: currentDate,
+          streak: 1,
+        });
+      }
+      
       navigate('/home', { state: { userName: userName.substring(0, userName.length - 10) } });
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+
+    
   };
 
   return (
@@ -197,6 +240,10 @@ const Signup = () => {
             <option value="7">7</option>
             <option value="8">8</option>
           </select>
+
+          <label htmlFor="rec" className="form-label">Refered by: <span className='bobs'>(Leave Empty if None)</span></label>
+          <input id="rec" type="text" placeholder='Enter Regno' value={rec} onChange={(event) => setRec(event.target.value)} className="form-input" />
+
           <br />
           <button className="signup-button" onClick={handleSignup}>Sign up</button>
         </form>

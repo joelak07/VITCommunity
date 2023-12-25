@@ -154,7 +154,7 @@ const Home = () => {
 
               <div className="mainhomebot">
                 <div className="comhome">
-                  <b>Have a look at what your friends have to say and feel free <br />to voice out your opinions</b>
+                  <b>Have a look at what your friends have to say and feel free to voice out your opinions</b>
                   <button className="button" onClick={goToCommunity}>Go to Community</button>
                 </div>
                 <div className="comhome">

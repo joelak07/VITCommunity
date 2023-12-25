@@ -32,8 +32,8 @@
 
 
 .button {
-  padding: 15px 30px;
-  width: 240px;
+  padding: 12px 24px;
+  width:300px;
   font-size: 1.2rem;
   cursor: pointer;
   background-color: brown;
@@ -41,12 +41,17 @@
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  margin-left: 20px;
 
   @media screen and (max-width: 768px) {
     font-size: 1rem;
     padding: 20px 40px;
-    width: 250px;
-    
+    width: 300px;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1318px) {
+    font-size: 1rem;
   }
 } 
 
@@ -70,20 +75,30 @@
   padding: 10px 20px;
   font-family: 'Popins', sans-serif;
 }
-
+.leadhome h3{
+  text-align: center;
+}
 .streakbox {
   padding: 6px 12px;
+  padding-left: 12px;
   background-color: rgb(255, 186, 57);
   border-radius: 10px;
   font-size: 0.8rem;
-  width: 130px;
+  width: 140px;
   display: flex;
   align-items: center;
   @media screen and (max-width: 768px) {
     width: fit-content;
+    margin-left: 20px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1318px) {
+    width: 170px;
     
   }
 }
+
 
 .leftmaintop{
   padding-left: 20px;
@@ -124,7 +139,7 @@
   border-radius: 10px;
   padding: 10px;
   margin-right: 20px;
-  min-height: 299px;
+  min-height: 266px;
   margin-top: 15px;
 
   @media screen and (max-width: 768px) {
@@ -140,6 +155,7 @@
 .admes{
   margin: 0;
   margin-bottom: 10px;
+  text-align: center;
   @media screen and (max-width: 768px) {
       font-size: 1rem;
       text-align: center;
@@ -193,6 +209,7 @@
 .leftmainhome{
   width: 100%;
   height: auto;
+  margin-right: 15px
 }
 
 .usersbox{
@@ -206,6 +223,18 @@
   align-items: center;
   @media screen and (max-width: 768px) {
     width: fit-content;
+    margin-right: 20px;
+  }
+  @media screen and (max-width: 1318px) {
+    width: 200px;
+    
+  }
+}
+
+.usersbox h3,.streakbox h3{
+  @media screen and (max-width: 768px) {
+    position: relative;
+    left: 10px;
     
   }
 }
@@ -221,6 +250,7 @@
   @media screen and (max-width: 768px) {
     display: none;
   }
+
 }
 
 .comhome{
@@ -241,6 +271,7 @@
 
 .comhome b{
   display: block;
+  width: 70%;
   @media screen and (max-width: 768px) {
     display: none;
   }
