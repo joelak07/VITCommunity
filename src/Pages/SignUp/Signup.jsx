@@ -155,7 +155,7 @@ const Signup = () => {
     }
 
     try {
-      const firstLoginTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+      const firstLoginTime = new Date().toLocaleDateString('en-GB') + " " + new Date().toLocaleTimeString();
       const currentDate = new Date().toLocaleDateString('en-GB');
       if(recc){
         await setDoc(doc(collection(db, "users"), regno), {
