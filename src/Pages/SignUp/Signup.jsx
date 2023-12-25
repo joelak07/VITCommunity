@@ -15,7 +15,7 @@ const Signup = () => {
   const [userName, setUserName] = useState('');
   const [batch, setBatch] = useState('');
   const [regno, setRegno] = useState('');
-  const [rec, setRec] = useState('');
+  let [rec, setRec] = useState('');
   let recc=false;
 
 
@@ -117,7 +117,13 @@ const Signup = () => {
       return;
     }
 
+    rec=rec.toUpperCase();
+
     if (rec !== '') {
+      if(rec===regno){
+        alert('You cannot refer yourself');
+        return;
+      }
       try {
         const recDocRef = doc(db, 'users', rec);
         const recDocSnap = await getDoc(recDocRef);
