@@ -64,7 +64,7 @@ const Notespage = () => {
       setLoading(true);
       const storage = getStorage();
       const uniqueKey = new Date().toISOString();
-      const storageRef = ref(storage, `files/${uniqueKey}`);
+      const storageRef = ref(storage, `files/${uniqueKey}${file.name.endsWith('.zip') ? '.zip' : ''}`);
 
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
