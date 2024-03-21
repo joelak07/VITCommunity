@@ -2,7 +2,7 @@
   width: calc(95.7%/3);
   height: fit-content;
   background-color: rgb(246, 219, 185);
-  padding: 12px;
+  padding: 24px 36px;
   font-family: 'Poppins', 'sans-serif';
   margin: 10px;
   box-sizing: border-box;
@@ -18,9 +18,9 @@
 
 .notesobj h3 {
   color: #333;
-  margin-bottom: 8px;
+  margin: 0px;
+  margin-bottom: 5px;
   font-size: 1.5rem;
-  margin-top: 5px;
 }
 
 .notesobj p {

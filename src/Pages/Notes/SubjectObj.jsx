@@ -9,8 +9,8 @@ const SubjectObj = ({ subjectCode, subjectName }) => {
     };
   return (
     <div className='subjectobj' onClick={handleClick}>
-      <h2>{subjectCode}</h2>
-      <h3>{subjectName}</h3>
+      <h2>{subjectName}</h2>
+      <h3>{subjectCode}</h3>
     </div>
   );
 };

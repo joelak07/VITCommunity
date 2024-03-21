@@ -3,8 +3,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: "Poppins", sans-serif;
-  height: auto;
-  padding: 20px;
+  height: 100vh;
+  padding: 50px 75px;
 
   @media screen and (max-width: 768px){
     padding: 10px;
@@ -59,7 +59,6 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px;
-
   @media screen and (max-width: 768px){
     
     margin: 10px;
@@ -174,10 +173,10 @@
 
 .prevqpcont {
   padding: 10px 20px;
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
   border-radius: 10px;
   margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
   height: 500px;
 
   @media screen and (max-width: 768px){

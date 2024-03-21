@@ -92,8 +92,9 @@
         padding: 8px;
         font-size: 1rem;
         margin-right:12px;
+        background-color: black;
     }
-    background-color:black;
+    background-color:#282b2e;
     color: white;
     border-radius: 10px;
     border: none;
@@ -104,6 +105,7 @@
 
 .backbut:hover{
     transform: scale(1.1);
+    background-color: black;
 }
 
 .paperbut{
@@ -114,8 +116,9 @@
         padding: 8px;
         font-size: 1rem;
         margin-right:12px;
+        background-color: black;
     }
-    background-color:black;
+    background-color: #282b2e;
     color: white;
     border-radius: 10px;
     border: none;
@@ -126,6 +129,7 @@
 
 .paperbut:hover{
     transform: scale(1.1);
+    background-color: black;
 }
 
 .notesbut{
@@ -136,8 +140,9 @@
         padding: 8px;
         font-size: 1rem;
         margin-right:12px;
+        background-color: black;
     }
-    background-color:black;
+    background-color:#282b2e;
     color: white;
     border-radius: 10px;
     border: none;
@@ -148,6 +153,7 @@
 
 .notesbut:hover{
     transform: scale(1.1);
+    background-color: black;
 }
 
 .homeNav {

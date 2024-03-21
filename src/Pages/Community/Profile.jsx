@@ -197,7 +197,7 @@ const Profile = () => {
         <h2>Your Posts</h2>
         <div className="myvoices">
           {posts.length === 0 ? (
-            <h2>You haven't posed yet😔</h2>
+            <h3>You haven't posed yet😔</h3>
           ) : (
             posts.map((post) => (
               <Post

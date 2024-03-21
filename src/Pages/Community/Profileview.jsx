@@ -169,7 +169,7 @@ const Profileview = () => {
         <h2>Posts</h2>
         <div className="myvoices">
           {posts.length === 0 ? (
-            <h2>User hasn't posted yet</h2>
+            <h3>User hasn't posted yet</h3>
           ) : (
             posts.map((post) => (
               <Post

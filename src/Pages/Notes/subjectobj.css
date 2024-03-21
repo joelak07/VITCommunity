@@ -1,12 +1,13 @@
 .subjectobj {
     width: calc(25% - 10px);
-    height: 150px;
+    height: 200px;
     background-color: rgb(246, 219, 185);
-    padding: 10px;
+    padding: 24px 36px;
     font-family: 'Poppins', 'sans-serif';
     margin: 5px; 
-    box-sizing: border-box;     
+    box-sizing: border-box;  
     border-radius: 10px;
+    transition: 0.2s ease-in-out;
     @media screen and (max-width: 768px) {
         width: 100%;
     }
@@ -18,7 +19,7 @@
 }
 
 .subjectobj h3{
-    color: #4d4c5c;
+    color: #646379;
 }
 
 .subjectobj:hover {

@@ -9,8 +9,8 @@ const Prevqpclosed = ({ coursecode, papername}) => {
   };
   return (
     <div className='subjectobj' onClick={handleClick}>
-      <h2>{coursecode}</h2>
-      <h3>{papername}</h3>
+      <h2>{papername}</h2>
+      <h3>{coursecode}</h3>
     </div>
   );
 

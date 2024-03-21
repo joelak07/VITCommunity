@@ -1,5 +1,7 @@
 .pqpage{
-    height: 100vh;
+    background-color: #f4f4f4;
+    height: fit-content;
+    padding: 50px 75px;
 }
 
 .pageres{
@@ -7,8 +9,6 @@
     width: max-width;
     height: 96vh;
     border-radius: 10px;
-    background-color: antiquewhite;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     font-family: "Poppins", sans-serif;
     @media screen and (max-width: 1110px) {

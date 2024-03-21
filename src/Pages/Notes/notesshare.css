@@ -1,7 +1,7 @@
 .notes {
  height: auto;
- padding: 20px;
-
+ padding: 50px 75px;
+ background-color: #f4f4f4;
  @media screen and (max-width: 768px) {
   padding: 0;
   height: 90%;
@@ -14,8 +14,7 @@
   background-color: antiquewhite;
   height: auto;
   border-radius: 10px;
-  padding: 10px;
-  padding-left: 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,7 +85,7 @@
   border: none;
   cursor: pointer;
   border-radius: 10px;
-
+  transition: 0.2s ease-in-out;
   @media screen and (max-width: 768px) {
     width: 100%;
     margin-top: 10px;
@@ -101,12 +100,12 @@
 
 .notesrescont{
   height: 80vh;
-  background-color: antiquewhite;
+  /*background-color: antiquewhite;*/
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
   width: max-width;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
 
   @media screen and (max-width: 768px) {
     margin: 10px;
@@ -158,6 +157,7 @@
   cursor: pointer;
   font-size: 16px;
   margin-left: 10px;
+  transition: 0.2s ease-in-out;
   @media screen and (max-width: 768px) {
     font-size: 13px;
   }
@@ -173,7 +173,6 @@
   border-radius: 10px;
   margin-top: 10px;
   padding: 10px;
-  max-height: 63vh;
   overflow-y: auto;
 
   @media screen and (max-width: 768px) {

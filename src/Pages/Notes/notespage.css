@@ -1,5 +1,7 @@
 .notespage {
-    height: 100vh;
+    height: fit-content;
+    background-color: #f4f4f4;
+    padding: 50px 75px;
 }
 
 .uploadnotescont { 
@@ -80,7 +82,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-
+    transition: 0.2s ease-in-out;
     @media screen and (max-width: 768px) {
       width: 100%;
       margin-top: 5px;
@@ -97,9 +99,7 @@
     width: max-width;
     height: auto;
     padding: 10px;
-    background-color: antiquewhite;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-wrap: wrap;

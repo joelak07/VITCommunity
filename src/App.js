@@ -13,6 +13,7 @@ import Feedback from './Pages/Feedback/Feedback';
 import Profile from './Pages/Community/Profile';
 import Profileview from './Pages/Community/Profileview';
 import Leader from './Pages/Leaderboard/Leader';
+import Footer from './Pages/Footer';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="*" element={<Login />} />
           
         </Routes>
+      <Footer />
     </div>
   );
 }

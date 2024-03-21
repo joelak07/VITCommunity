@@ -2,6 +2,7 @@ import React from 'react'
 import { doc, updateDoc, increment } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../firebase";
+import profile from '../../Assets/profile.jpeg';
 
 import './post.css'
 const Post = ({ student, content, likes, time, postId,dislikes,fires }) => {
@@ -35,8 +36,10 @@ const Post = ({ student, content, likes, time, postId,dislikes,fires }) => {
 
     return (
         <div className='post'>
+            <div className='imgClass'><img src={profile} alt="profile" class="profileImg" /></div>
+            <div className='contClass'>
             <div className="namepost">
-                <h3>{student}</h3>
+                <p className='studname'>{student}</p>
                 <div className="datetime">
                     <p>{time}</p>
                 </div>
@@ -48,6 +51,7 @@ const Post = ({ student, content, likes, time, postId,dislikes,fires }) => {
                 <button onClick={handlelike}>❤️</button><p>{like}</p>
                 <button onClick={handledislike}>👎</button><p>{dislike}</p>
                 <button onClick={handleFire}>🔥</button><p>{fire}</p>   
+            </div>
             </div>
         </div>
     )

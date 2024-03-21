@@ -132,19 +132,19 @@ const Home = () => {
     <div className="home-container">
       <div className="homecontent">
         <div className="tophead">
-          <h1 className="heading">Home Page</h1>
-
-          <h2 className="user-greeting">Hello {name}😊</h2>
+          <h2 className="user-greeting">Hello {name} 😊</h2>
+          <div className='stuff'>
+          <div className="streakbox">
+                <h3>{streak}🔥</h3>
+          </div>
+          <div className="usersbox">
+                <h3>{users}🪙</h3>
+          </div>
+          </div>
         </div>
         <div className="mainhome">
           <div className="leftmainhome">
             <div className="leftmaintop">
-              <div className="streakbox">
-                <h3>Streak: {streak}🔥</h3>
-              </div>
-              <div className="usersbox">
-                <h3>Your Score: {users}</h3>
-              </div>
               <div className="quotebox">
                 <p>{quote}</p>
               </div>
@@ -154,22 +154,22 @@ const Home = () => {
 
               <div className="mainhomebot">
                 <div className="comhome">
-                  <b>Have a look at what your friends have to say and feel free to voice out your opinions</b>
+                  <span>Have a look at what your friends have to say and feel free to voice out your opinions</span>
                   <button className="button" onClick={goToCommunity}>Go to Community</button>
                 </div>
                 <div className="comhome">
-                  <b>View and upload previous CAT,FAT Theory and lab papers here</b>
+                  <span>View and upload previous CAT, FAT Theory and lab papers here</span>
                   <button className="button" onClick={goToPreviousQP}>Go to Previous QP</button>
                 </div>
                 <div className="comhome">
-                  <b>View and Upload study material and grow together</b>
+                  <span>View and Upload study material and grow together</span>
                   <button className="button" onClick={goToNotes}>Resources</button>
                 </div>
                 <div className="comhome">
-                  <b>Share your valuable Feedback here</b>
+                  <span>Share your valuable Feedback here</span>
                   <button className="button" onClick={goToFeedback}>Feedback</button>
                 </div>
-                <div className="comled">
+                <div className="comhome" id='lead'>
                   <button className="button" onClick={navlead}>Leaderboard</button>
                 </div>
               </div>

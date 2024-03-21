@@ -123,7 +123,7 @@ const Login = () => {
             </div>
             <div className="rightlog">
                 <div className="logincontainer">
-                    <GoogleButton onClick={loggingin} style={{ fontSize: '16px', padding: '10px' }} />
+                    <GoogleButton onClick={loggingin} style={{ fontSize: '16px', padding: '10px', height: '1' }} />
                 </div>
             </div>
         </div>
