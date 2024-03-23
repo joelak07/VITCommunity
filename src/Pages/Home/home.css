@@ -210,14 +210,12 @@
 }
 
 .mainhome{
-  margin-top: 20px;
-  display: grid;
+  display: flex;
   justify-content: space-between;
-  grid-template-columns: 2fr 1fr;
+
   @media screen and (max-width: 768px) {
-    display: flex;;
     flex-direction: column;
-    margin-top: 0;
+    
   }
 }
 
@@ -272,21 +270,18 @@
 }
 
 .comhome{
-  width: 275px;
-  height: 450px;
-  background-color: rgb(238, 238, 238);
+  width: auto;
+  background-color: rgb(255, 254, 254);
   display: flex;
   justify-content: space-between;
-  padding: 30px 20px;
+  padding: 10px;
   border-radius: 10px;
   align-items: center;
-  flex-direction: column;
-
+  height: 90px;
   @media screen and (max-width: 768px) {
     padding: 0;
     height: auto;
-    width: 100%;
-    background-color: antiquewhite;
+    width: max-content;
   }
 }
 
@@ -314,15 +309,10 @@
   gap: calc(0.5rem + 0.35vw);
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
-    flex-direction: column;
+    width: fit-content;
     justify-content: center;
-  }
-
-  @media screen and (max-width: 1418px) {
-    flex-direction: column;
   }
 }
