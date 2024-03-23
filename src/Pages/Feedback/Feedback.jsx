@@ -14,8 +14,8 @@ const Feedback = () => {
   const navigate = useNavigate();
   const auth = getAuth();
 
-  const check=localStorage.getItem('userName');
-  if(check===null){
+  const check = localStorage.getItem('userName');
+  if (check === null) {
     navigate('/login');
   }
 
@@ -49,7 +49,7 @@ const Feedback = () => {
   const handlefahe = () => {
     navigate('/profileview', { state: { regno: "21BCE5518" } });
   };
-  
+
 
   const handleTextareaChange = (event) => {
     setFeedbackContent(event.target.value);
@@ -58,38 +58,13 @@ const Feedback = () => {
   return (
     <div className="feedback">
       <div className="aboutus">
-        <h2 className="titdev">Meet the Developers</h2>
+        <h2 className="titdev">Meet the Developer</h2>
         <div className="card1" onClick={handlejoel}>
           <img src={myImage} alt="" />
           <div className="card1txt">
-            <h2>Lead Developer</h2>
             <h3>Joel Abraham Koshy</h3>
             <h3>21BCE1350</h3>
           </div>
-        </div>
-        <div className="card1" onClick={handlefahe}>
-          <img src={fahe} alt="" />
-          <div className="card1txt">
-            <h3>Faheema Kattakath Sanil</h3>
-            <h3>21BCE5518</h3>
-          </div>
-        </div>
-        <h2 className="titdev">Advisors</h2>
-        <div className="boxdev">
-        <div className="card2" onClick={handlejithu}>
-          <img src={jithu} alt="" />
-          <div className="card2txt">
-            <h3>Jithu Joji</h3>
-            <h3>21BCE1451</h3>
-          </div>
-        </div>
-        <div className="card2" onClick={handlejeevan}>
-          <img src={jeevan} alt="" />
-          <div className="card2txt">
-            <h3>Jeevan Alexen Kavalam</h3>
-            <h3>21BCE5436</h3>
-          </div>
-        </div>
         </div>
       </div>
       <div className="feedbackcont">
